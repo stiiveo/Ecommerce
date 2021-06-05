@@ -27,6 +27,9 @@
 		8FD59EAC266A0D1F007F8FE9 /* LoginStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59EAB266A0D1F007F8FE9 /* LoginStoryBoard.storyboard */; };
 		8FD59EAE266A4BEF007F8FE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59EAD266A4BEF007F8FE9 /* GoogleService-Info.plist */; };
 		8FD59EB0266A5204007F8FE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59EAF266A5203007F8FE9 /* GoogleService-Info.plist */; };
+		8FD59EB6266B14D2007F8FE9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EB5266B14D2007F8FE9 /* LoginVC.swift */; };
+		8FD59EB8266B14E4007F8FE9 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EB7266B14E4007F8FE9 /* RegisterVC.swift */; };
+		8FD59EBB266B2E4C007F8FE9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EBA266B2E4C007F8FE9 /* Extensions.swift */; };
 		F72F58E8B5ED76819DBA1E86 /* Pods_Ecommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B66193E898F30C96068BB28C /* Pods_Ecommerce.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +99,9 @@
 		8FD59EAB266A0D1F007F8FE9 /* LoginStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryBoard.storyboard; sourceTree = "<group>"; };
 		8FD59EAD266A4BEF007F8FE9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FD59EAF266A5203007F8FE9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8FD59EB5266B14D2007F8FE9 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		8FD59EB7266B14E4007F8FE9 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		8FD59EBA266B2E4C007F8FE9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B66193E898F30C96068BB28C /* Pods_Ecommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ecommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F8044E44D422E6B9AB5F7E /* Pods-EcommerceAdmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcommerceAdmin.release.xcconfig"; path = "Target Support Files/Pods-EcommerceAdmin/Pods-EcommerceAdmin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,12 +195,10 @@
 		8FD59E44266A018B007F8FE9 /* Ecommerce */ = {
 			isa = PBXGroup;
 			children = (
-				8FD59E45266A018B007F8FE9 /* AppDelegate.swift */,
-				8FD59E47266A018B007F8FE9 /* SceneDelegate.swift */,
-				8FD59E49266A018B007F8FE9 /* ViewController.swift */,
-				8FD59EAB266A0D1F007F8FE9 /* LoginStoryBoard.storyboard */,
-				8FD59E4B266A018B007F8FE9 /* Main.storyboard */,
-				8FD59E50266A018D007F8FE9 /* LaunchScreen.storyboard */,
+				8FD59EB3266B140D007F8FE9 /* Model */,
+				8FD59EB2266B1407007F8FE9 /* View */,
+				8FD59EB1266B13FE007F8FE9 /* Controller */,
+				8FD59EB4266B1413007F8FE9 /* Storyboards */,
 				8FD59E53266A018D007F8FE9 /* Info.plist */,
 				8FD59EAD266A4BEF007F8FE9 /* GoogleService-Info.plist */,
 			);
@@ -254,9 +258,54 @@
 		8FD59EA9266A0309007F8FE9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				8FD59EB9266B2E3A007F8FE9 /* Utilities */,
 				8FD59E4E266A018D007F8FE9 /* Assets.xcassets */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		8FD59EB1266B13FE007F8FE9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8FD59EB5266B14D2007F8FE9 /* LoginVC.swift */,
+				8FD59EB7266B14E4007F8FE9 /* RegisterVC.swift */,
+				8FD59E49266A018B007F8FE9 /* ViewController.swift */,
+				8FD59E45266A018B007F8FE9 /* AppDelegate.swift */,
+				8FD59E47266A018B007F8FE9 /* SceneDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8FD59EB2266B1407007F8FE9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8FD59EB3266B140D007F8FE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8FD59EB4266B1413007F8FE9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8FD59EAB266A0D1F007F8FE9 /* LoginStoryBoard.storyboard */,
+				8FD59E4B266A018B007F8FE9 /* Main.storyboard */,
+				8FD59E50266A018D007F8FE9 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8FD59EB9266B2E3A007F8FE9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8FD59EBA266B2E4C007F8FE9 /* Extensions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		96C0EAAD75ED4572C988C69F /* Pods */ = {
@@ -580,8 +629,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FD59E4A266A018B007F8FE9 /* ViewController.swift in Sources */,
+				8FD59EBB266B2E4C007F8FE9 /* Extensions.swift in Sources */,
 				8FD59E46266A018B007F8FE9 /* AppDelegate.swift in Sources */,
+				8FD59EB6266B14D2007F8FE9 /* LoginVC.swift in Sources */,
 				8FD59E48266A018B007F8FE9 /* SceneDelegate.swift in Sources */,
+				8FD59EB8266B14E4007F8FE9 /* RegisterVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

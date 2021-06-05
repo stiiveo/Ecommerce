@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         let storyboard = UIStoryboard(name: "LoginStoryBoard", bundle: nil)
         let controller = storyboard.instantiateViewController(identifier: "loginVC")
         controller.modalTransitionStyle = .crossDissolve
