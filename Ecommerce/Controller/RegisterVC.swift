@@ -68,7 +68,6 @@ class RegisterVC: UIViewController {
               let email = emailText.text, email.isNotEmpty,
               let password = passwordText.text, password.isNotEmpty,
               let confirmedPassword = confirmPasswordText.text, confirmedPassword.isNotEmpty else {
-            
             print("User input is empty.")
             return
         }
@@ -81,12 +80,16 @@ class RegisterVC: UIViewController {
         
         activityIndicator.startAnimating()
         
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            guard error == nil else {
-                debugPrint(error!)
+        guard let currentUser = Auth.auth().currentUser else { return }
+        
+        // Associate the current anonymous user's User UID with user–provided info.
+        let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        currentUser.link(with: credential) { authDataResult, error in
+            if let error = error {
+                debugPrint(error)
                 return
             }
-            // auth is successful
+            // Linking process is successful.
             self.activityIndicator.stopAnimating()
             self.dismiss(animated: true, completion: nil)
         }

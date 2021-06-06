@@ -13,23 +13,28 @@ class HomeVC: UIViewController {
     // Outlets
     @IBOutlet weak var logInOutButton: UIBarButtonItem!
     
-    // Log in / out state
-    var loggedIn: Bool {
-        return Auth.auth().currentUser != nil
+    var userIsAnonymous: Bool {
+        if let user = Auth.auth().currentUser {
+            return user.isAnonymous
+        }
+        return false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if Auth.auth().currentUser == nil {
+            Auth.auth().signInAnonymously { authResult, error in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                }
+                self.updateLogButtonTitle()
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if loggedIn {
-            logInOutButton.title = Constants.ViewController.Home.Title.logOut
-        } else {
-            logInOutButton.title = Constants.ViewController.Home.Title.logIn
-        }
+        updateLogButtonTitle()
     }
     
     fileprivate func presentLogInController() {
@@ -41,16 +46,29 @@ class HomeVC: UIViewController {
     }
 
     @IBAction func logInOutButtonClicked(_ sender: UIBarButtonItem) {
-        if loggedIn {
-            // Sign out the currently logged in user.
+        guard let user = Auth.auth().currentUser else { return }
+        if user.isAnonymous {
+            presentLogInController()
+        } else {
             do {
                 try Auth.auth().signOut()
-                presentLogInController()
+                Auth.auth().signInAnonymously { result, error in
+                    if let error = error {
+                        debugPrint(error)
+                    }
+                    self.presentLogInController()
+                }
             } catch {
                 debugPrint(error.localizedDescription)
             }
+        }
+    }
+    
+    fileprivate func updateLogButtonTitle() {
+        if userIsAnonymous {
+            logInOutButton.title = Constants.ViewController.Home.Title.logIn
         } else {
-            presentLogInController()
+            logInOutButton.title = Constants.ViewController.Home.Title.logOut
         }
     }
     
