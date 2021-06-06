@@ -32,6 +32,8 @@
 		8FD59EBB266B2E4C007F8FE9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EBA266B2E4C007F8FE9 /* Extensions.swift */; };
 		8FD59EBD266BB27E007F8FE9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EBC266BB27E007F8FE9 /* Constants.swift */; };
 		8FD59EC1266BB768007F8FE9 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EC0266BB768007F8FE9 /* RoundedViews.swift */; };
+		8FD59EC5266CF8ED007F8FE9 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EC3266CF8ED007F8FE9 /* ForgotPasswordVC.swift */; };
+		8FD59EC6266CF8ED007F8FE9 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59EC4266CF8ED007F8FE9 /* ForgotPasswordVC.xib */; };
 		F72F58E8B5ED76819DBA1E86 /* Pods_Ecommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B66193E898F30C96068BB28C /* Pods_Ecommerce.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +108,8 @@
 		8FD59EBA266B2E4C007F8FE9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8FD59EBC266BB27E007F8FE9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8FD59EC0266BB768007F8FE9 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		8FD59EC3266CF8ED007F8FE9 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		8FD59EC4266CF8ED007F8FE9 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		B66193E898F30C96068BB28C /* Pods_Ecommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ecommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F8044E44D422E6B9AB5F7E /* Pods-EcommerceAdmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcommerceAdmin.release.xcconfig"; path = "Target Support Files/Pods-EcommerceAdmin/Pods-EcommerceAdmin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,6 +203,7 @@
 		8FD59E44266A018B007F8FE9 /* Ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				8FD59EC2266CF8C1007F8FE9 /* XIBs */,
 				8FD59EB3266B140D007F8FE9 /* Model */,
 				8FD59EB2266B1407007F8FE9 /* View */,
 				8FD59EB1266B13FE007F8FE9 /* Controller */,
@@ -320,6 +325,15 @@
 				8FD59EC0266BB768007F8FE9 /* RoundedViews.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8FD59EC2266CF8C1007F8FE9 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				8FD59EC3266CF8ED007F8FE9 /* ForgotPasswordVC.swift */,
+				8FD59EC4266CF8ED007F8FE9 /* ForgotPasswordVC.xib */,
+			);
+			path = XIBs;
 			sourceTree = "<group>";
 		};
 		96C0EAAD75ED4572C988C69F /* Pods */ = {
@@ -511,6 +525,7 @@
 				8FD59E4F266A018D007F8FE9 /* Assets.xcassets in Resources */,
 				8FD59EAE266A4BEF007F8FE9 /* GoogleService-Info.plist in Resources */,
 				8FD59E4D266A018B007F8FE9 /* Main.storyboard in Resources */,
+				8FD59EC6266CF8ED007F8FE9 /* ForgotPasswordVC.xib in Resources */,
 				8FD59EAC266A0D1F007F8FE9 /* LoginStoryBoard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,6 +662,7 @@
 				8FD59E46266A018B007F8FE9 /* AppDelegate.swift in Sources */,
 				8FD59EB6266B14D2007F8FE9 /* LoginVC.swift in Sources */,
 				8FD59EC1266BB768007F8FE9 /* RoundedViews.swift in Sources */,
+				8FD59EC5266CF8ED007F8FE9 /* ForgotPasswordVC.swift in Sources */,
 				8FD59EBD266BB27E007F8FE9 /* Constants.swift in Sources */,
 				8FD59E48266A018B007F8FE9 /* SceneDelegate.swift in Sources */,
 				8FD59EB8266B14E4007F8FE9 /* RegisterVC.swift in Sources */,
