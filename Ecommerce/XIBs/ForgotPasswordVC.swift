@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ForgotPasswordVC: UIViewController {
 
@@ -18,16 +19,28 @@ class ForgotPasswordVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundView.alpha = 0.6
-        dialogView.layer.cornerRadius = 5
-        titleLabel.layer.cornerRadius = 5
-        resetButton.layer.cornerRadius = 5
-        cancelButton.layer.cornerRadius = 5
+        backgroundView.alpha = 0.5
     }
 
 
     @IBAction func resetButtonClicked(_ sender: UIButton) {
-        // send reset password command to FIR API...
+        guard let email = emailTextField.text,
+              email.isNotEmpty else {
+            debugPrint("Email value is empty.")
+            presentSimpleAlert(title: "Error", message: "Please provide your email.")
+            return
+        }
+        
+        Auth.auth().useAppLanguage()
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                debugPrint(error)
+                self.handleFIRAuthError(error: error)
+            } else {
+                // Reset password email has been sent.
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func cancelButtonClicked(_ sender: UIButton) {

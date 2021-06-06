@@ -15,7 +15,7 @@ class RoundedButton: UIButton {
     }
 }
 
-class RoundedShadow: UIView {
+class RoundedShadowView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 5
