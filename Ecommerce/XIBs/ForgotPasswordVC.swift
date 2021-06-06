@@ -9,21 +9,29 @@ import UIKit
 
 class ForgotPasswordVC: UIViewController {
 
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var dialogView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        backgroundView.alpha = 0.6
+        dialogView.layer.cornerRadius = 5
+        titleLabel.layer.cornerRadius = 5
+        resetButton.layer.cornerRadius = 5
+        cancelButton.layer.cornerRadius = 5
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func resetButtonClicked(_ sender: UIButton) {
+        // send reset password command to FIR API...
     }
-    */
-
+    
+    @IBAction func cancelButtonClicked(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
