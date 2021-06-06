@@ -30,6 +30,8 @@
 		8FD59EB6266B14D2007F8FE9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EB5266B14D2007F8FE9 /* LoginVC.swift */; };
 		8FD59EB8266B14E4007F8FE9 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EB7266B14E4007F8FE9 /* RegisterVC.swift */; };
 		8FD59EBB266B2E4C007F8FE9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EBA266B2E4C007F8FE9 /* Extensions.swift */; };
+		8FD59EBD266BB27E007F8FE9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EBC266BB27E007F8FE9 /* Constants.swift */; };
+		8FD59EC1266BB768007F8FE9 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EC0266BB768007F8FE9 /* RoundedViews.swift */; };
 		F72F58E8B5ED76819DBA1E86 /* Pods_Ecommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B66193E898F30C96068BB28C /* Pods_Ecommerce.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +104,8 @@
 		8FD59EB5266B14D2007F8FE9 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		8FD59EB7266B14E4007F8FE9 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		8FD59EBA266B2E4C007F8FE9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8FD59EBC266BB27E007F8FE9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8FD59EC0266BB768007F8FE9 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		B66193E898F30C96068BB28C /* Pods_Ecommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ecommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F8044E44D422E6B9AB5F7E /* Pods-EcommerceAdmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcommerceAdmin.release.xcconfig"; path = "Target Support Files/Pods-EcommerceAdmin/Pods-EcommerceAdmin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,9 +172,9 @@
 			children = (
 				8FD59EA9266A0309007F8FE9 /* Shared */,
 				8FD59E44266A018B007F8FE9 /* Ecommerce */,
+				8FD59E7A266A027B007F8FE9 /* EcommerceAdmin */,
 				8FD59E5B266A018D007F8FE9 /* EcommerceTests */,
 				8FD59E66266A018D007F8FE9 /* EcommerceUITests */,
-				8FD59E7A266A027B007F8FE9 /* EcommerceAdmin */,
 				8FD59E91266A027D007F8FE9 /* EcommerceAdminTests */,
 				8FD59E9C266A027D007F8FE9 /* EcommerceAdminUITests */,
 				8FD59E43266A018B007F8FE9 /* Products */,
@@ -258,6 +262,7 @@
 		8FD59EA9266A0309007F8FE9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				8FD59EBF266BB752007F8FE9 /* Views */,
 				8FD59EB9266B2E3A007F8FE9 /* Utilities */,
 				8FD59E4E266A018D007F8FE9 /* Assets.xcassets */,
 			);
@@ -304,8 +309,17 @@
 			isa = PBXGroup;
 			children = (
 				8FD59EBA266B2E4C007F8FE9 /* Extensions.swift */,
+				8FD59EBC266BB27E007F8FE9 /* Constants.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8FD59EBF266BB752007F8FE9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8FD59EC0266BB768007F8FE9 /* RoundedViews.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		96C0EAAD75ED4572C988C69F /* Pods */ = {
@@ -632,6 +646,8 @@
 				8FD59EBB266B2E4C007F8FE9 /* Extensions.swift in Sources */,
 				8FD59E46266A018B007F8FE9 /* AppDelegate.swift in Sources */,
 				8FD59EB6266B14D2007F8FE9 /* LoginVC.swift in Sources */,
+				8FD59EC1266BB768007F8FE9 /* RoundedViews.swift in Sources */,
+				8FD59EBD266BB27E007F8FE9 /* Constants.swift in Sources */,
 				8FD59E48266A018B007F8FE9 /* SceneDelegate.swift in Sources */,
 				8FD59EB8266B14E4007F8FE9 /* RegisterVC.swift in Sources */,
 			);

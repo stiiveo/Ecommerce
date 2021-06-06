@@ -16,8 +16,8 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let storyboard = UIStoryboard(name: "LoginStoryBoard", bundle: nil)
-        let controller = storyboard.instantiateViewController(identifier: "loginVC")
+        let storyboard = UIStoryboard(name: Constants.ViewController.LogIn.StoryboardName, bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: Constants.ViewController.LogIn.Identifier)
         controller.modalTransitionStyle = .crossDissolve
         controller.modalPresentationStyle = .fullScreen
         present(controller, animated: true, completion: nil)
