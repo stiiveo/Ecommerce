@@ -35,19 +35,32 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func logInClicked(_ sender: UIButton) {
-        Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { authResult, error in
+        guard let email = emailText.text,
+              let password = passwordText.text else { return }
+        
+        // Make sure the input is not empty
+        guard email.isNotEmpty && password.isNotEmpty else { return }
+        
+        activityIndicator.startAnimating()
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             guard error == nil else {
                 // auth failed...
+                print("Log in failed: \(error!)")
+                self.activityIndicator.stopAnimating()
                 return
             }
             // auth success...
+            self.activityIndicator.stopAnimating()
+            print("User register with email \(email) is logged in.")
         }
     }
     
     @IBAction func logInAsGuestClicked(_ sender: UIButton) {
+        print("logInAsGuestClicked")
     }
     
     @IBAction func forgotPasswordClicked(_ sender: UIButton) {
+        print("forgotPasswordClicked")
     }
     
 }
