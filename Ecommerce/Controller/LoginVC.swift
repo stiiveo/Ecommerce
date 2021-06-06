@@ -36,16 +36,23 @@ class LoginVC: UIViewController {
     
     @IBAction func logInClicked(_ sender: UIButton) {
         guard let email = emailText.text,
-              let password = passwordText.text else { return }
+              let password = passwordText.text else {
+            debugPrint("Failed to retrieve text from the text field(s).")
+            return
+        }
         
-        // Make sure the input is not empty
-        guard email.isNotEmpty && password.isNotEmpty else { return }
+        guard email.isNotEmpty, password.isNotEmpty else {
+            presentSimpleAlert(title: "Error", message: "Email and password are required.")
+            debugPrint("User did not provide email and/or password.")
+            return
+        }
         
         activityIndicator.startAnimating()
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            guard error == nil else {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
                 // auth failed...
-                print("Log in failed: \(error!)")
+                debugPrint(error)
+                self.handleFIRAuthError(error: error)
                 self.activityIndicator.stopAnimating()
                 return
             }
