@@ -51,7 +51,7 @@ class LoginVC: UIViewController {
             }
             // auth success...
             self.activityIndicator.stopAnimating()
-            print("User register with email \(email) is logged in.")
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

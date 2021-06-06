@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseAuth
+import Firebase
 
 class RegisterVC: UIViewController {
 
@@ -73,6 +73,7 @@ class RegisterVC: UIViewController {
             return
         }
         
+        // Make sure both values in the password fields are identical.
         guard password == confirmedPassword else {
             print("Please ensure the confirm password is correct.")
             return
@@ -87,7 +88,7 @@ class RegisterVC: UIViewController {
             }
             // auth is successful
             self.activityIndicator.stopAnimating()
-            print("Successfully registered new user.")
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

@@ -10,6 +10,12 @@ import UIKit
 struct Constants {
     
     struct ViewController {
+        struct Home {
+            struct Title {
+                static let logIn = "LogIn"
+                static let logOut = "LogOut"
+            }
+        }
         struct LogIn {
             static let StoryboardName = "LoginStoryBoard"
             static let Identifier = "loginVC"
