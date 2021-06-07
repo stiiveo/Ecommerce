@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5E8C76FB551124E1E3E6F5CD /* Pods_EcommerceAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5831C387FEBA0BE18ADA5377 /* Pods_EcommerceAdmin.framework */; };
+		8F831A66266DEC7E009D74DF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F831A65266DEC7E009D74DF /* Category.swift */; };
+		8F831A67266DEC7E009D74DF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F831A65266DEC7E009D74DF /* Category.swift */; };
 		8FD59E46266A018B007F8FE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59E45266A018B007F8FE9 /* AppDelegate.swift */; };
 		8FD59E48266A018B007F8FE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59E47266A018B007F8FE9 /* SceneDelegate.swift */; };
 		8FD59E4A266A018B007F8FE9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59E49266A018B007F8FE9 /* HomeVC.swift */; };
-		8FD59E4D266A018B007F8FE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59E4B266A018B007F8FE9 /* Main.storyboard */; };
 		8FD59E4F266A018D007F8FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59E4E266A018D007F8FE9 /* Assets.xcassets */; };
 		8FD59E52266A018D007F8FE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59E50266A018D007F8FE9 /* LaunchScreen.storyboard */; };
 		8FD59E5D266A018D007F8FE9 /* EcommerceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59E5C266A018D007F8FE9 /* EcommerceTests.swift */; };
@@ -36,6 +37,7 @@
 		8FD59EC6266CF8ED007F8FE9 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59EC4266CF8ED007F8FE9 /* ForgotPasswordVC.xib */; };
 		8FD59EC8266DC79C007F8FE9 /* Firebase+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EC7266DC79C007F8FE9 /* Firebase+Utilities.swift */; };
 		8FD59EC9266DCA1F007F8FE9 /* Firebase+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EC7266DC79C007F8FE9 /* Firebase+Utilities.swift */; };
+		8FD59ECC266DD759007F8FE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59ECA266DD755007F8FE9 /* Main.storyboard */; };
 		F72F58E8B5ED76819DBA1E86 /* Pods_Ecommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B66193E898F30C96068BB28C /* Pods_Ecommerce.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,11 +77,11 @@
 		5831C387FEBA0BE18ADA5377 /* Pods_EcommerceAdmin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcommerceAdmin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		787834C2FB87B214EE8E4169 /* Pods-Ecommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ecommerce.release.xcconfig"; path = "Target Support Files/Pods-Ecommerce/Pods-Ecommerce.release.xcconfig"; sourceTree = "<group>"; };
 		7F4E9F966CC5CBD3EF2A64AF /* Pods-EcommerceAdmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcommerceAdmin.debug.xcconfig"; path = "Target Support Files/Pods-EcommerceAdmin/Pods-EcommerceAdmin.debug.xcconfig"; sourceTree = "<group>"; };
+		8F831A65266DEC7E009D74DF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8FD59E42266A018B007F8FE9 /* Ecommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ecommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD59E45266A018B007F8FE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FD59E47266A018B007F8FE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8FD59E49266A018B007F8FE9 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		8FD59E4C266A018B007F8FE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FD59E4E266A018D007F8FE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FD59E51266A018D007F8FE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FD59E53266A018D007F8FE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		8FD59EC3266CF8ED007F8FE9 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		8FD59EC4266CF8ED007F8FE9 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		8FD59EC7266DC79C007F8FE9 /* Firebase+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Utilities.swift"; sourceTree = "<group>"; };
+		8FD59ECB266DD756007F8FE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B66193E898F30C96068BB28C /* Pods_Ecommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ecommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F8044E44D422E6B9AB5F7E /* Pods-EcommerceAdmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcommerceAdmin.release.xcconfig"; path = "Target Support Files/Pods-EcommerceAdmin/Pods-EcommerceAdmin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				8FD59EC2266CF8C1007F8FE9 /* XIBs */,
-				8FD59EB3266B140D007F8FE9 /* Model */,
 				8FD59EB2266B1407007F8FE9 /* View */,
 				8FD59EB1266B13FE007F8FE9 /* Controller */,
 				8FD59EB4266B1413007F8FE9 /* Storyboards */,
@@ -270,6 +272,7 @@
 		8FD59EA9266A0309007F8FE9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				8FD59EB3266B140D007F8FE9 /* Model */,
 				8FD59EBF266BB752007F8FE9 /* Views */,
 				8FD59EB9266B2E3A007F8FE9 /* Utilities */,
 				8FD59E4E266A018D007F8FE9 /* Assets.xcassets */,
@@ -299,6 +302,7 @@
 		8FD59EB3266B140D007F8FE9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8F831A65266DEC7E009D74DF /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,7 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				8FD59EAB266A0D1F007F8FE9 /* LoginStoryBoard.storyboard */,
-				8FD59E4B266A018B007F8FE9 /* Main.storyboard */,
+				8FD59ECA266DD755007F8FE9 /* Main.storyboard */,
 				8FD59E50266A018D007F8FE9 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -528,7 +532,7 @@
 				8FD59E52266A018D007F8FE9 /* LaunchScreen.storyboard in Resources */,
 				8FD59E4F266A018D007F8FE9 /* Assets.xcassets in Resources */,
 				8FD59EAE266A4BEF007F8FE9 /* GoogleService-Info.plist in Resources */,
-				8FD59E4D266A018B007F8FE9 /* Main.storyboard in Resources */,
+				8FD59ECC266DD759007F8FE9 /* Main.storyboard in Resources */,
 				8FD59EC6266CF8ED007F8FE9 /* ForgotPasswordVC.xib in Resources */,
 				8FD59EAC266A0D1F007F8FE9 /* LoginStoryBoard.storyboard in Resources */,
 			);
@@ -670,6 +674,7 @@
 				8FD59EC5266CF8ED007F8FE9 /* ForgotPasswordVC.swift in Sources */,
 				8FD59EBD266BB27E007F8FE9 /* Constants.swift in Sources */,
 				8FD59E48266A018B007F8FE9 /* SceneDelegate.swift in Sources */,
+				8F831A66266DEC7E009D74DF /* Category.swift in Sources */,
 				8FD59EB8266B14E4007F8FE9 /* RegisterVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -698,6 +703,7 @@
 				8FD59E7C266A027B007F8FE9 /* AppDelegate.swift in Sources */,
 				8FD59E7E266A027B007F8FE9 /* SceneDelegate.swift in Sources */,
 				8FD59EC9266DCA1F007F8FE9 /* Firebase+Utilities.swift in Sources */,
+				8F831A67266DEC7E009D74DF /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,14 +749,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8FD59E4B266A018B007F8FE9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8FD59E4C266A018B007F8FE9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8FD59E50266A018D007F8FE9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -773,6 +771,14 @@
 				8FD59E87266A027D007F8FE9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8FD59ECA266DD755007F8FE9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8FD59ECB266DD756007F8FE9 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

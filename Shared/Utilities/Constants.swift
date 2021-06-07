@@ -12,8 +12,8 @@ struct Constants {
     struct ViewController {
         struct Home {
             struct Title {
-                static let logIn = "LogIn"
-                static let logOut = "LogOut"
+                static let logIn = "Log In"
+                static let logOut = "Log Out"
             }
         }
         struct LogIn {

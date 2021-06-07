@@ -12,6 +12,8 @@ class HomeVC: UIViewController {
     
     // Outlets
     @IBOutlet weak var logInOutButton: UIBarButtonItem!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var userIsAnonymous: Bool {
         if let user = Auth.auth().currentUser {
@@ -22,6 +24,7 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.backgroundColor = .clear
         if Auth.auth().currentUser == nil {
             Auth.auth().signInAnonymously { authResult, error in
                 if let error = error {
