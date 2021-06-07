@@ -30,4 +30,8 @@ struct Constants {
         }
     }
     
+    struct Identifiers {
+        static let categoryCell = "CategoryCell"
+    }
+    
 }

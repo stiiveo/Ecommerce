@@ -10,6 +10,10 @@
 		5E8C76FB551124E1E3E6F5CD /* Pods_EcommerceAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5831C387FEBA0BE18ADA5377 /* Pods_EcommerceAdmin.framework */; };
 		8F831A66266DEC7E009D74DF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F831A65266DEC7E009D74DF /* Category.swift */; };
 		8F831A67266DEC7E009D74DF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F831A65266DEC7E009D74DF /* Category.swift */; };
+		8F831A6A266DEDC8009D74DF /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F831A68266DEDC8009D74DF /* CategoryCell.swift */; };
+		8F831A6B266DEDC8009D74DF /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F831A68266DEDC8009D74DF /* CategoryCell.swift */; };
+		8F831A6C266DEDC8009D74DF /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F831A69266DEDC8009D74DF /* CategoryCell.xib */; };
+		8F831A6D266DEDC8009D74DF /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F831A69266DEDC8009D74DF /* CategoryCell.xib */; };
 		8FD59E46266A018B007F8FE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59E45266A018B007F8FE9 /* AppDelegate.swift */; };
 		8FD59E48266A018B007F8FE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59E47266A018B007F8FE9 /* SceneDelegate.swift */; };
 		8FD59E4A266A018B007F8FE9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59E49266A018B007F8FE9 /* HomeVC.swift */; };
@@ -78,6 +82,8 @@
 		787834C2FB87B214EE8E4169 /* Pods-Ecommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ecommerce.release.xcconfig"; path = "Target Support Files/Pods-Ecommerce/Pods-Ecommerce.release.xcconfig"; sourceTree = "<group>"; };
 		7F4E9F966CC5CBD3EF2A64AF /* Pods-EcommerceAdmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcommerceAdmin.debug.xcconfig"; path = "Target Support Files/Pods-EcommerceAdmin/Pods-EcommerceAdmin.debug.xcconfig"; sourceTree = "<group>"; };
 		8F831A65266DEC7E009D74DF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		8F831A68266DEDC8009D74DF /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		8F831A69266DEDC8009D74DF /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		8FD59E42266A018B007F8FE9 /* Ecommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ecommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FD59E45266A018B007F8FE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FD59E47266A018B007F8FE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +183,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8F831A6E266DEDD5009D74DF /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				8F831A69266DEDC8009D74DF /* CategoryCell.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
 		8FD59E39266A018B007F8FE9 = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				8FD59EB3266B140D007F8FE9 /* Model */,
+				8F831A6E266DEDD5009D74DF /* Xibs */,
 				8FD59EBF266BB752007F8FE9 /* Views */,
 				8FD59EB9266B2E3A007F8FE9 /* Utilities */,
 				8FD59E4E266A018D007F8FE9 /* Assets.xcassets */,
@@ -331,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				8FD59EC0266BB768007F8FE9 /* RoundedViews.swift */,
+				8F831A68266DEDC8009D74DF /* CategoryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -530,6 +546,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FD59E52266A018D007F8FE9 /* LaunchScreen.storyboard in Resources */,
+				8F831A6C266DEDC8009D74DF /* CategoryCell.xib in Resources */,
 				8FD59E4F266A018D007F8FE9 /* Assets.xcassets in Resources */,
 				8FD59EAE266A4BEF007F8FE9 /* GoogleService-Info.plist in Resources */,
 				8FD59ECC266DD759007F8FE9 /* Main.storyboard in Resources */,
@@ -556,6 +573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F831A6D266DEDC8009D74DF /* CategoryCell.xib in Resources */,
 				8FD59E88266A027D007F8FE9 /* LaunchScreen.storyboard in Resources */,
 				8FD59EB0266A5204007F8FE9 /* GoogleService-Info.plist in Resources */,
 				8FD59EAA266A0331007F8FE9 /* Assets.xcassets in Resources */,
@@ -676,6 +694,7 @@
 				8FD59E48266A018B007F8FE9 /* SceneDelegate.swift in Sources */,
 				8F831A66266DEC7E009D74DF /* Category.swift in Sources */,
 				8FD59EB8266B14E4007F8FE9 /* RegisterVC.swift in Sources */,
+				8F831A6A266DEDC8009D74DF /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,6 +723,7 @@
 				8FD59E7E266A027B007F8FE9 /* SceneDelegate.swift in Sources */,
 				8FD59EC9266DCA1F007F8FE9 /* Firebase+Utilities.swift in Sources */,
 				8F831A67266DEC7E009D74DF /* Category.swift in Sources */,
+				8F831A6B266DEDC8009D74DF /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
