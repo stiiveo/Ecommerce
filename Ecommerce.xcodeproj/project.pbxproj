@@ -34,6 +34,8 @@
 		8FD59EC1266BB768007F8FE9 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EC0266BB768007F8FE9 /* RoundedViews.swift */; };
 		8FD59EC5266CF8ED007F8FE9 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EC3266CF8ED007F8FE9 /* ForgotPasswordVC.swift */; };
 		8FD59EC6266CF8ED007F8FE9 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59EC4266CF8ED007F8FE9 /* ForgotPasswordVC.xib */; };
+		8FD59EC8266DC79C007F8FE9 /* Firebase+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EC7266DC79C007F8FE9 /* Firebase+Utilities.swift */; };
+		8FD59EC9266DCA1F007F8FE9 /* Firebase+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EC7266DC79C007F8FE9 /* Firebase+Utilities.swift */; };
 		F72F58E8B5ED76819DBA1E86 /* Pods_Ecommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B66193E898F30C96068BB28C /* Pods_Ecommerce.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +112,7 @@
 		8FD59EC0266BB768007F8FE9 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		8FD59EC3266CF8ED007F8FE9 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		8FD59EC4266CF8ED007F8FE9 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
+		8FD59EC7266DC79C007F8FE9 /* Firebase+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Utilities.swift"; sourceTree = "<group>"; };
 		B66193E898F30C96068BB28C /* Pods_Ecommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ecommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F8044E44D422E6B9AB5F7E /* Pods-EcommerceAdmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcommerceAdmin.release.xcconfig"; path = "Target Support Files/Pods-EcommerceAdmin/Pods-EcommerceAdmin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -315,6 +318,7 @@
 			children = (
 				8FD59EBA266B2E4C007F8FE9 /* Extensions.swift */,
 				8FD59EBC266BB27E007F8FE9 /* Constants.swift */,
+				8FD59EC7266DC79C007F8FE9 /* Firebase+Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -658,6 +662,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FD59E4A266A018B007F8FE9 /* HomeVC.swift in Sources */,
+				8FD59EC8266DC79C007F8FE9 /* Firebase+Utilities.swift in Sources */,
 				8FD59EBB266B2E4C007F8FE9 /* Extensions.swift in Sources */,
 				8FD59E46266A018B007F8FE9 /* AppDelegate.swift in Sources */,
 				8FD59EB6266B14D2007F8FE9 /* LoginVC.swift in Sources */,
@@ -692,6 +697,7 @@
 				8FD59E80266A027B007F8FE9 /* ViewController.swift in Sources */,
 				8FD59E7C266A027B007F8FE9 /* AppDelegate.swift in Sources */,
 				8FD59E7E266A027B007F8FE9 /* SceneDelegate.swift in Sources */,
+				8FD59EC9266DCA1F007F8FE9 /* Firebase+Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,7 +829,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -878,7 +884,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

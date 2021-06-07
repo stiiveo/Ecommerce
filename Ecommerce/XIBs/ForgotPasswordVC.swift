@@ -27,15 +27,16 @@ class ForgotPasswordVC: UIViewController {
         guard let email = emailTextField.text,
               email.isNotEmpty else {
             debugPrint("Email value is empty.")
-            presentSimpleAlert(title: "Error", message: "Please provide your email.")
+            presentAlert(withTitle: "Error", message: "Please provide your email.")
             return
         }
         
         Auth.auth().useAppLanguage()
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if let error = error {
+                // Fail to send password reset.
                 debugPrint(error)
-                self.handleFIRAuthError(error: error)
+                Auth.auth().presentFIRAuthErrorAlert(error: error, toViewController: self)
             } else {
                 // Reset password email has been sent.
                 self.dismiss(animated: true, completion: nil)

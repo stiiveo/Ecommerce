@@ -42,7 +42,7 @@ class LoginVC: UIViewController {
         }
         
         guard email.isNotEmpty, password.isNotEmpty else {
-            presentSimpleAlert(title: "Error", message: "Email and password are required.")
+            presentAlert(withTitle: "Error", message: "Email and password are required.")
             debugPrint("User did not provide email and/or password.")
             return
         }
@@ -50,9 +50,9 @@ class LoginVC: UIViewController {
         activityIndicator.startAnimating()
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
-                // auth failed...
+                // Failed to sign in.
                 debugPrint(error)
-                self.handleFIRAuthError(error: error)
+                Auth.auth().presentFIRAuthErrorAlert(error: error, toViewController: self)
                 self.activityIndicator.stopAnimating()
                 return
             }

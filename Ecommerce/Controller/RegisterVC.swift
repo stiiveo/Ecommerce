@@ -68,14 +68,14 @@ class RegisterVC: UIViewController {
               let email = emailText.text, email.isNotEmpty,
               let password = passwordText.text, password.isNotEmpty,
               let confirmedPassword = confirmPasswordText.text, confirmedPassword.isNotEmpty else {
-            presentSimpleAlert(title: "Error", message: "Please fill out all fields.")
+            presentAlert(withTitle: "Error", message: "Please fill out all fields.")
             debugPrint("One or more fields are empty.")
             return
         }
         
         // Make sure both values in the password fields are identical.
         guard password == confirmedPassword else {
-            presentSimpleAlert(title: "Error", message: "Passwords do not match.")
+            presentAlert(withTitle: "Error", message: "Passwords do not match.")
             debugPrint("User–provided password and confirm password does not match.")
             return
         }
@@ -88,8 +88,9 @@ class RegisterVC: UIViewController {
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         currentUser.link(with: credential) { authDataResult, error in
             if let error = error {
+                // Failed to link provided credential with the current user.
                 debugPrint(error)
-                self.handleFIRAuthError(error: error)
+                Auth.auth().presentFIRAuthErrorAlert(error: error, toViewController: self)
                 self.activityIndicator.stopAnimating()
                 return
             }

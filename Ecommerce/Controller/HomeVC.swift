@@ -25,8 +25,9 @@ class HomeVC: UIViewController {
         if Auth.auth().currentUser == nil {
             Auth.auth().signInAnonymously { authResult, error in
                 if let error = error {
+                    // Failed to sign in the current user anonymously.
                     debugPrint(error)
-                    self.handleFIRAuthError(error: error)
+                    Auth.auth().presentFIRAuthErrorAlert(error: error, toViewController: self)
                 }
                 self.updateLogButtonTitle()
             }
@@ -55,14 +56,16 @@ class HomeVC: UIViewController {
                 try Auth.auth().signOut()
                 Auth.auth().signInAnonymously { result, error in
                     if let error = error {
+                        // Failed to sign in anonymously.
                         debugPrint(error)
-                        self.handleFIRAuthError(error: error)
+                        Auth.auth().presentFIRAuthErrorAlert(error: error, toViewController: self)
                     }
                     self.presentLogInController()
                 }
             } catch {
+                // Failed to sign out the current user.
                 debugPrint(error)
-                handleFIRAuthError(error: error)
+                Auth.auth().presentFIRAuthErrorAlert(error: error, toViewController: self)
             }
         }
     }
