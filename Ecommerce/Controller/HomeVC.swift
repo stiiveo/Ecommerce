@@ -17,6 +17,7 @@ class HomeVC: UIViewController {
     
     // Variables
     var categories = [Category]()
+    var selectedCategory: Category!
     
     var userIsAnonymous: Bool {
         if let user = Auth.auth().currentUser {
@@ -111,8 +112,20 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let viewWidth = collectionView.frame.width
         let cellWidth = (viewWidth - 30) / 2
-        let cellHeight = cellWidth * 1.5
+        let cellHeight = cellWidth * 1.3
         return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedCategory = categories[indexPath.item]
+        performSegue(withIdentifier: Constants.Segues.ToProducts, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == Constants.Segues.ToProducts else { return }
+        if let destination = segue.destination as? ProductsVC {
+            destination.selectedCategory = selectedCategory
+        }
     }
     
 }

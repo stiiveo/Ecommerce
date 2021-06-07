@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gwE-oe-XXt">
-                                <rect key="frame" x="20" y="88" width="374" height="808"/>
+                                <rect key="frame" x="10" y="88" width="394" height="808"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uiR-17-egM">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -45,9 +45,9 @@
                             <constraint firstItem="RvK-Fp-z8g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TcU-gC-Fwz"/>
                             <constraint firstItem="RvK-Fp-z8g" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="VXg-yG-R7f"/>
                             <constraint firstItem="gwE-oe-XXt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ezt-o3-YKY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gwE-oe-XXt" secondAttribute="trailing" constant="20" id="mWh-zg-q1l"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gwE-oe-XXt" secondAttribute="trailing" constant="10" id="mWh-zg-q1l"/>
                             <constraint firstItem="lpV-I1-z49" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vHI-gy-dpL"/>
-                            <constraint firstItem="gwE-oe-XXt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="zey-ih-bkf"/>
+                            <constraint firstItem="gwE-oe-XXt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="zey-ih-bkf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zqt-SY-U6p">
@@ -62,7 +62,7 @@
                         <outlet property="activityIndicator" destination="RvK-Fp-z8g" id="1ed-eM-A7z"/>
                         <outlet property="collectionView" destination="gwE-oe-XXt" id="lrw-ao-uRB"/>
                         <outlet property="logInOutButton" destination="j5A-Jh-Qhy" id="MLl-U4-465"/>
-                        <segue destination="6xT-Hn-Ouh" kind="presentation" identifier="toProductsVC" modalPresentationStyle="fullScreen" id="acJ-AA-JP5"/>
+                        <segue destination="6xT-Hn-Ouh" kind="show" identifier="toProductsVC" id="k91-2z-c4v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -78,10 +78,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_cat3" translatesAutoresizingMaskIntoConstraints="NO" id="bGH-gu-rUr">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kTt-Qo-poi">
-                                <rect key="frame" x="20" y="44" width="374" height="852"/>
+                                <rect key="frame" x="2" y="88" width="410" height="808"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -90,8 +90,8 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="kTt-Qo-poi" secondAttribute="bottom" id="1FR-KD-JtY"/>
                             <constraint firstItem="bGH-gu-rUr" firstAttribute="trailing" secondItem="WfE-1S-i3u" secondAttribute="trailing" id="AVQ-iv-w9L"/>
-                            <constraint firstItem="kTt-Qo-poi" firstAttribute="leading" secondItem="WfE-1S-i3u" secondAttribute="leading" constant="20" id="LW8-Kt-d2p"/>
-                            <constraint firstItem="WfE-1S-i3u" firstAttribute="trailing" secondItem="kTt-Qo-poi" secondAttribute="trailing" constant="20" id="LhI-2X-lMk"/>
+                            <constraint firstItem="kTt-Qo-poi" firstAttribute="leading" secondItem="WfE-1S-i3u" secondAttribute="leading" constant="2" id="LW8-Kt-d2p"/>
+                            <constraint firstItem="WfE-1S-i3u" firstAttribute="trailing" secondItem="kTt-Qo-poi" secondAttribute="trailing" constant="2" id="LhI-2X-lMk"/>
                             <constraint firstItem="bGH-gu-rUr" firstAttribute="top" secondItem="WfE-1S-i3u" secondAttribute="top" id="Tz3-dY-ncn"/>
                             <constraint firstAttribute="bottom" secondItem="bGH-gu-rUr" secondAttribute="bottom" id="XwA-ad-yGd"/>
                             <constraint firstItem="kTt-Qo-poi" firstAttribute="top" secondItem="WfE-1S-i3u" secondAttribute="top" id="rfc-k1-Jzy"/>
