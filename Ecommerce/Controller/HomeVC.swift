@@ -34,7 +34,7 @@ class HomeVC: UIViewController {
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: Constants.Identifiers.categoryCell, bundle: nil), forCellWithReuseIdentifier: Constants.Identifiers.categoryCell)
+        collectionView.register(UINib(nibName: Constants.Identifiers.CategoryCell, bundle: nil), forCellWithReuseIdentifier: Constants.Identifiers.CategoryCell)
         
         if Auth.auth().currentUser == nil {
             Auth.auth().signInAnonymously { authResult, error in
@@ -101,7 +101,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Identifiers.categoryCell, for: indexPath) as? CategoryCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Identifiers.CategoryCell, for: indexPath) as? CategoryCell {
             cell.configureCell(category: categories[indexPath.item])
             return cell
         }

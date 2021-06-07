@@ -62,11 +62,50 @@
                         <outlet property="activityIndicator" destination="RvK-Fp-z8g" id="1ed-eM-A7z"/>
                         <outlet property="collectionView" destination="gwE-oe-XXt" id="lrw-ao-uRB"/>
                         <outlet property="logInOutButton" destination="j5A-Jh-Qhy" id="MLl-U4-465"/>
+                        <segue destination="6xT-Hn-Ouh" kind="show" identifier="toProductsVC" id="4mF-cj-wpk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="116.51785714285714"/>
+        </scene>
+        <!--ProductsVC-->
+        <scene sceneID="jYO-2y-u2e">
+            <objects>
+                <viewController id="6xT-Hn-Ouh" customClass="ProductsVC" customModule="Ecommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sSX-fa-mJf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_cat3" translatesAutoresizingMaskIntoConstraints="NO" id="bGH-gu-rUr">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kTt-Qo-poi">
+                                <rect key="frame" x="20" y="88" width="374" height="808"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WfE-1S-i3u"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="kTt-Qo-poi" secondAttribute="bottom" id="1FR-KD-JtY"/>
+                            <constraint firstItem="bGH-gu-rUr" firstAttribute="trailing" secondItem="WfE-1S-i3u" secondAttribute="trailing" id="AVQ-iv-w9L"/>
+                            <constraint firstItem="kTt-Qo-poi" firstAttribute="leading" secondItem="WfE-1S-i3u" secondAttribute="leading" constant="20" id="LW8-Kt-d2p"/>
+                            <constraint firstItem="WfE-1S-i3u" firstAttribute="trailing" secondItem="kTt-Qo-poi" secondAttribute="trailing" constant="20" id="LhI-2X-lMk"/>
+                            <constraint firstItem="bGH-gu-rUr" firstAttribute="top" secondItem="WfE-1S-i3u" secondAttribute="top" id="Tz3-dY-ncn"/>
+                            <constraint firstAttribute="bottom" secondItem="bGH-gu-rUr" secondAttribute="bottom" id="XwA-ad-yGd"/>
+                            <constraint firstItem="kTt-Qo-poi" firstAttribute="top" secondItem="WfE-1S-i3u" secondAttribute="top" id="rfc-k1-Jzy"/>
+                            <constraint firstItem="bGH-gu-rUr" firstAttribute="leading" secondItem="WfE-1S-i3u" secondAttribute="leading" id="uq8-YQ-nmd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="kYz-vc-D4O"/>
+                    <connections>
+                        <outlet property="tableView" destination="kTt-Qo-poi" id="OQM-2Z-IJ6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RLA-BM-BL2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1939" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iIZ-ky-I0u">

@@ -31,7 +31,11 @@ struct Constants {
     }
     
     struct Identifiers {
-        static let categoryCell = "CategoryCell"
+        static let CategoryCell = "CategoryCell"
+    }
+    
+    struct Segues {
+        static let ToProducts = "toProductsVC"
     }
     
 }
