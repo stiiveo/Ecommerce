@@ -87,7 +87,7 @@ class HomeVC: UIViewController {
                 case .modified:
                     self.onDocumentModified()
                 case .removed:
-                    self.onDocumentRemoved()
+                    self.onDocumentRemoved(change: change)
                 }
             })
         })
@@ -103,8 +103,10 @@ class HomeVC: UIViewController {
         
     }
     
-    func onDocumentRemoved() {
-        
+    func onDocumentRemoved(change: DocumentChange) {
+        let oldIndex = Int(change.oldIndex)
+        categories.remove(at: oldIndex)
+        collectionView.deleteItems(at: [IndexPath(item: oldIndex, section: 0)])
     }
     
     fileprivate func presentLogInController() {
