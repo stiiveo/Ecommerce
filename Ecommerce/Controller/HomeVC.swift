@@ -19,6 +19,7 @@ class HomeVC: UIViewController {
     var categories = [Category]()
     var selectedCategory: Category!
     var db: Firestore!
+    var listener: ListenerRegistration!
     
     var userIsAnonymous: Bool {
         if let user = Auth.auth().currentUser {
@@ -46,36 +47,64 @@ class HomeVC: UIViewController {
                 self.updateLogButtonTitle()
             }
         }
-        
-//        fetchDocument()
-        fetchCollection()
     }
     
     func fetchDocument() {
         let docReference = db.collection("categories").document("v3QdKR5fTQE7ayjoo8Iu")
-        docReference.getDocument { snapshot, error in
+        
+        docReference.addSnapshotListener { snapshot, error in
+            self.categories.removeAll()
             guard let data = snapshot?.data() else { return }
             let newCategory = Category(data: data)
             self.categories.append(newCategory)
             self.collectionView.reloadData()
         }
+        
+//        docReference.getDocument { snapshot, error in
+//            guard let data = snapshot?.data() else { return }
+//            let newCategory = Category(data: data)
+//            self.categories.append(newCategory)
+//            self.collectionView.reloadData()
+//        }
     }
     
     func fetchCollection() {
         let collectionReference = db.collectionGroup("categories")
-        collectionReference.getDocuments { snapshot, error in
+        
+        listener = collectionReference.addSnapshotListener { snapshot, error in
             guard let documents = snapshot?.documents else { return }
+            self.categories.removeAll()
             for document in documents {
                 let newCategory = Category(data: document.data())
                 self.categories.append(newCategory)
             }
             self.collectionView.reloadData()
         }
+        
+//        collectionReference.getDocuments { snapshot, error in
+//            guard let documents = snapshot?.documents else { return }
+//            for document in documents {
+//                let newCategory = Category(data: document.data())
+//                self.categories.append(newCategory)
+//            }
+//            self.collectionView.reloadData()
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateLogButtonTitle()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //        fetchDocument()
+        fetchCollection()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        listener.remove()
     }
     
     fileprivate func presentLogInController() {
