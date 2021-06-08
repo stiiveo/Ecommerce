@@ -47,48 +47,8 @@ class HomeVC: UIViewController {
                 self.updateLogButtonTitle()
             }
         }
-    }
-    
-    func fetchDocument() {
-        let docReference = db.collection("categories").document("v3QdKR5fTQE7ayjoo8Iu")
         
-        docReference.addSnapshotListener { snapshot, error in
-            self.categories.removeAll()
-            guard let data = snapshot?.data() else { return }
-            let newCategory = Category(data: data)
-            self.categories.append(newCategory)
-            self.collectionView.reloadData()
-        }
-        
-//        docReference.getDocument { snapshot, error in
-//            guard let data = snapshot?.data() else { return }
-//            let newCategory = Category(data: data)
-//            self.categories.append(newCategory)
-//            self.collectionView.reloadData()
-//        }
-    }
-    
-    func fetchCollection() {
-        let collectionReference = db.collectionGroup("categories")
-        
-        listener = collectionReference.addSnapshotListener { snapshot, error in
-            guard let documents = snapshot?.documents else { return }
-            self.categories.removeAll()
-            for document in documents {
-                let newCategory = Category(data: document.data())
-                self.categories.append(newCategory)
-            }
-            self.collectionView.reloadData()
-        }
-        
-//        collectionReference.getDocuments { snapshot, error in
-//            guard let documents = snapshot?.documents else { return }
-//            for document in documents {
-//                let newCategory = Category(data: document.data())
-//                self.categories.append(newCategory)
-//            }
-//            self.collectionView.reloadData()
-//        }
+        setCategoriesListener()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,13 +58,47 @@ class HomeVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //        fetchDocument()
-        fetchCollection()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         listener.remove()
+    }
+    
+    func setCategoriesListener() {
+        listener = db.collection("categories").addSnapshotListener({ snapshot, error in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            // Process each document change depending on its type.
+            snapshot?.documentChanges.forEach({ change in
+                let data = change.document.data()
+                let category = Category(data: data)
+                switch change.type {
+                case .added:
+                    self.onDocumentAdded(change: change, category: category)
+                case .modified:
+                    self.onDocumentModified()
+                case .removed:
+                    self.onDocumentRemoved()
+                }
+            })
+        })
+    }
+    
+    func onDocumentAdded(change: DocumentChange, category: Category) {
+        let newIndex = Int(change.newIndex)
+        categories.insert(category, at: newIndex)
+        collectionView.insertItems(at: [IndexPath(item: newIndex, section: 0)])
+    }
+    
+    func onDocumentModified() {
+        
+    }
+    
+    func onDocumentRemoved() {
+        
     }
     
     fileprivate func presentLogInController() {
@@ -164,8 +158,8 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let viewWidth = collectionView.frame.width
-        let cellWidth = (viewWidth - 30) / 2
-        let cellHeight = cellWidth * 1.2
+        let cellWidth = (viewWidth - 10) / 2
+        let cellHeight = cellWidth * 1.25
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
@@ -182,3 +176,47 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
 }
+
+// Reference
+
+//    func fetchDocument() {
+//        let docReference = db.collection("categories").document("v3QdKR5fTQE7ayjoo8Iu")
+//
+//        docReference.addSnapshotListener { snapshot, error in
+//            self.categories.removeAll()
+//            guard let data = snapshot?.data() else { return }
+//            let newCategory = Category(data: data)
+//            self.categories.append(newCategory)
+//            self.collectionView.reloadData()
+//        }
+
+//        docReference.getDocument { snapshot, error in
+//            guard let data = snapshot?.data() else { return }
+//            let newCategory = Category(data: data)
+//            self.categories.append(newCategory)
+//            self.collectionView.reloadData()
+//        }
+//    }
+
+//    func fetchCollection() {
+//        let collectionReference = db.collectionGroup("categories")
+//
+//        listener = collectionReference.addSnapshotListener { snapshot, error in
+//            guard let documents = snapshot?.documents else { return }
+//            self.categories.removeAll()
+//            for document in documents {
+//                let newCategory = Category(data: document.data())
+//                self.categories.append(newCategory)
+//            }
+//            self.collectionView.reloadData()
+//        }
+
+//        collectionReference.getDocuments { snapshot, error in
+//            guard let documents = snapshot?.documents else { return }
+//            for document in documents {
+//                let newCategory = Category(data: document.data())
+//                self.categories.append(newCategory)
+//            }
+//            self.collectionView.reloadData()
+//        }
+//    }
