@@ -7,6 +7,12 @@
 
 import Firebase
 
+extension Firestore {
+    var categories: Query {
+        return collection("categories").order(by: "timestamp", descending: true)
+    }
+}
+
 extension Auth {
     func presentFIRAuthErrorAlert(error: Error, toViewController viewController: UIViewController) {
         if let errorCode = AuthErrorCode(rawValue: error._code) {
