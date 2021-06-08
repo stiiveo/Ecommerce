@@ -47,7 +47,8 @@ class HomeVC: UIViewController {
             }
         }
         
-        fetchDocument()
+//        fetchDocument()
+        fetchCollection()
     }
     
     func fetchDocument() {
@@ -56,6 +57,18 @@ class HomeVC: UIViewController {
             guard let data = snapshot?.data() else { return }
             let newCategory = Category(data: data)
             self.categories.append(newCategory)
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func fetchCollection() {
+        let collectionReference = db.collectionGroup("categories")
+        collectionReference.getDocuments { snapshot, error in
+            guard let documents = snapshot?.documents else { return }
+            for document in documents {
+                let newCategory = Category(data: document.data())
+                self.categories.append(newCategory)
+            }
             self.collectionView.reloadData()
         }
     }
