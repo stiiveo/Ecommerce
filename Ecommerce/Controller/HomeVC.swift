@@ -47,13 +47,12 @@ class HomeVC: UIViewController {
                 self.updateLogButtonTitle()
             }
         }
-        
-        setCategoriesListener()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateLogButtonTitle()
+        setCategoriesListener()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,6 +62,13 @@ class HomeVC: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         listener.remove()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        // Remove loaded data so when this VC appears again, same data won't appear twice.
+        categories.removeAll()
+        collectionView.reloadData()
     }
     
     func setCategoriesListener() {
