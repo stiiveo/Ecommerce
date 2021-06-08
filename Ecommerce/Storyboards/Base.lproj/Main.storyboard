@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HomeVC-->
+        <!--ecommerce-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeVC" customModule="Ecommerce" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,13 +50,16 @@
                             <constraint firstItem="gwE-oe-XXt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="zey-ih-bkf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zqt-SY-U6p">
-                        <barButtonItem key="rightBarButtonItem" title="Log in" id="j5A-Jh-Qhy">
-                            <color key="tintColor" red="0.2261276206" green="0.2634668148" blue="0.33948484940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <navigationItem key="navigationItem" title="ecommerce" id="zqt-SY-U6p">
+                        <barButtonItem key="leftBarButtonItem" title="Log in" id="j5A-Jh-Qhy">
                             <connections>
                                 <action selector="logInOutButtonClicked:" destination="BYZ-38-t0r" id="6QA-Fk-l4U"/>
                             </connections>
                         </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="bar_button_cart" id="iAo-MO-7YO"/>
+                            <barButtonItem title="Item" image="bar_button_star" id="o6I-li-f9F"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="RvK-Fp-z8g" id="1ed-eM-A7z"/>
@@ -115,6 +118,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wkB-wD-wwH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.19008899598195306" green="0.22314841638941468" blue="0.29142613727878797" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -127,6 +136,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bar_button_cart" width="27" height="24"/>
+        <image name="bar_button_star" width="26" height="26"/>
         <image name="bg_cat3" width="1500" height="1875"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
