@@ -314,9 +314,9 @@
 				8FD59EB5266B14D2007F8FE9 /* LoginVC.swift */,
 				8FD59EB7266B14E4007F8FE9 /* RegisterVC.swift */,
 				8FD59E49266A018B007F8FE9 /* HomeVC.swift */,
+				8F4DB983266DFCC6005D0138 /* ProductsVC.swift */,
 				8FD59E45266A018B007F8FE9 /* AppDelegate.swift */,
 				8FD59E47266A018B007F8FE9 /* SceneDelegate.swift */,
-				8F4DB983266DFCC6005D0138 /* ProductsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

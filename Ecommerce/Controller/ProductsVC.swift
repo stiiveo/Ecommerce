@@ -18,7 +18,7 @@ class ProductsVC: UIViewController {
     var selectedCategory: Category?
     
     override func viewDidLoad() {
-        let product = Product(name: "Dell XPS 13", id: "dell_xps_13", category: "Computer", price: 999.99, productDescription: "Dell XPS 13", imageURL: "https://images.unsplash.com/photo-1567521463850-4939134bcd4a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8eHBzJTIwMTN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", timeStamp: Timestamp(), stock: 1, favorite: false)
+        let product = Product(name: "Dell XPS 13", id: "dell_xps_13", category: "Electronics", price: 999.99, productDescription: "Dell XPS 13", imageURL: "https://images.unsplash.com/photo-1567521463850-4939134bcd4a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8eHBzJTIwMTN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", timeStamp: Timestamp(), stock: 1, favorite: false)
         products.append(product)
         
         super.viewDidLoad()

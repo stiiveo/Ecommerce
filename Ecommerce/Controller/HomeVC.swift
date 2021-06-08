@@ -18,6 +18,7 @@ class HomeVC: UIViewController {
     // Variables
     var categories = [Category]()
     var selectedCategory: Category!
+    var db: Firestore!
     
     var userIsAnonymous: Bool {
         if let user = Auth.auth().currentUser {
@@ -28,9 +29,7 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let category = Category(name: "Computer", id: "01", imageURL: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHhwcyUyMDEzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", timestamp: Timestamp())
-        categories.append(category)
+        db = Firestore.firestore()
         
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
@@ -46,6 +45,18 @@ class HomeVC: UIViewController {
                 }
                 self.updateLogButtonTitle()
             }
+        }
+        
+        fetchDocument()
+    }
+    
+    func fetchDocument() {
+        let docReference = db.collection("categories").document("v3QdKR5fTQE7ayjoo8Iu")
+        docReference.getDocument { snapshot, error in
+            guard let data = snapshot?.data() else { return }
+            let newCategory = Category(data: data)
+            self.categories.append(newCategory)
+            self.collectionView.reloadData()
         }
     }
     
@@ -112,7 +123,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let viewWidth = collectionView.frame.width
         let cellWidth = (viewWidth - 30) / 2
-        let cellHeight = cellWidth * 1.3
+        let cellHeight = cellWidth * 1.2
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
