@@ -51,8 +51,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zqt-SY-U6p">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="j5A-Jh-Qhy">
-                            <color key="tintColor" red="0.2274509804" green="0.2666666667" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Log in" id="j5A-Jh-Qhy">
+                            <color key="tintColor" red="0.2261276206" green="0.2634668148" blue="0.33948484940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="logInOutButtonClicked:" destination="BYZ-38-t0r" id="6QA-Fk-l4U"/>
                             </connections>

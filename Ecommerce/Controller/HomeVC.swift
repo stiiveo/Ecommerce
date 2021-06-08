@@ -29,7 +29,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let category = Category(name: "Computer", id: "01", imageURL: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80", timeStamp: Timestamp())
+        let category = Category(name: "Computer", id: "01", imageURL: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHhwcyUyMDEzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", timestamp: Timestamp())
         categories.append(category)
         
         collectionView.backgroundColor = .clear

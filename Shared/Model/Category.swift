@@ -13,5 +13,5 @@ struct Category {
     var id: String
     var imageURL: String
     var isActive: Bool = true
-    var timeStamp: Timestamp
+    var timestamp: Timestamp
 }
