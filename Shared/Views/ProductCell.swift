@@ -26,8 +26,7 @@ class ProductCell: UITableViewCell {
             productImage.kf.setImage(with: url)
         }
         productTitle.text = product.name
-//        productPrice.text = String(product.price)
-//        favoriteButton.imageView.image = product.favorite ? #imageLiteral(resourceName: "empty_star")
+        productPrice.text = String(product.price)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,9 +36,11 @@ class ProductCell: UITableViewCell {
     }
     
     @IBAction func addToCartClicked(_ sender: Any) {
+        print("addToCartClicked")
     }
     
     @IBAction func favoriteClicked(_ sender: Any) {
+        print("favoriteClicked")
     }
     
 }

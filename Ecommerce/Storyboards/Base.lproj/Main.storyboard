@@ -84,7 +84,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kTt-Qo-poi">
-                                <rect key="frame" x="2" y="88" width="410" height="808"/>
+                                <rect key="frame" x="5" y="88" width="404" height="808"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -93,8 +93,8 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="kTt-Qo-poi" secondAttribute="bottom" id="1FR-KD-JtY"/>
                             <constraint firstItem="bGH-gu-rUr" firstAttribute="trailing" secondItem="WfE-1S-i3u" secondAttribute="trailing" id="AVQ-iv-w9L"/>
-                            <constraint firstItem="kTt-Qo-poi" firstAttribute="leading" secondItem="WfE-1S-i3u" secondAttribute="leading" constant="2" id="LW8-Kt-d2p"/>
-                            <constraint firstItem="WfE-1S-i3u" firstAttribute="trailing" secondItem="kTt-Qo-poi" secondAttribute="trailing" constant="2" id="LhI-2X-lMk"/>
+                            <constraint firstItem="kTt-Qo-poi" firstAttribute="leading" secondItem="WfE-1S-i3u" secondAttribute="leading" constant="5" id="LW8-Kt-d2p"/>
+                            <constraint firstItem="WfE-1S-i3u" firstAttribute="trailing" secondItem="kTt-Qo-poi" secondAttribute="trailing" constant="5" id="LhI-2X-lMk"/>
                             <constraint firstItem="bGH-gu-rUr" firstAttribute="top" secondItem="WfE-1S-i3u" secondAttribute="top" id="Tz3-dY-ncn"/>
                             <constraint firstAttribute="bottom" secondItem="bGH-gu-rUr" secondAttribute="bottom" id="XwA-ad-yGd"/>
                             <constraint firstItem="kTt-Qo-poi" firstAttribute="top" secondItem="WfE-1S-i3u" secondAttribute="top" id="rfc-k1-Jzy"/>

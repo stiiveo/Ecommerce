@@ -58,7 +58,7 @@ class HomeVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateLogButtonTitle()
-        setCategoriesListener()
+        addQueryListener()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,7 +73,7 @@ class HomeVC: UIViewController {
         collectionView.reloadData()
     }
     
-    func setCategoriesListener() {
+    func addQueryListener() {
         listener = db.categories.addSnapshotListener({ snapshot, error in
             if let error = error {
                 debugPrint(error.localizedDescription)
@@ -194,7 +194,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == Constants.Segues.ToProducts else { return }
         if let destination = segue.destination as? ProductsVC {
-            destination.selectedCategory = selectedCategory
+            destination.category = selectedCategory
         }
     }
     
