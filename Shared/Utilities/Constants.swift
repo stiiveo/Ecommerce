@@ -37,6 +37,7 @@ struct Constants {
     
     struct Segues {
         static let ToProducts = "toProductsVC"
+        static let ToAddEditCategory = "ToAddEditCategory"
     }
     
 }
