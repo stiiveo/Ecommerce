@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,9 +25,9 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8Hq-iR-dnq">
-                        <rect key="frame" x="8" y="155" width="134" height="24"/>
+                        <rect key="frame" x="8" y="150" width="134" height="29"/>
                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
-                        <color key="textColor" red="0.2261276206" green="0.2634668148" blue="0.33948484940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="textColor" name="Dynamic_label_color"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -39,7 +40,7 @@
                 <constraint firstItem="7pb-gq-M6n" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="DFr-XM-A16"/>
                 <constraint firstAttribute="bottom" secondItem="8Hq-iR-dnq" secondAttribute="bottom" id="THh-XU-gYF"/>
                 <constraint firstAttribute="trailing" secondItem="8Hq-iR-dnq" secondAttribute="trailing" constant="8" id="dtU-8b-5rr"/>
-                <constraint firstItem="8Hq-iR-dnq" firstAttribute="top" secondItem="7pb-gq-M6n" secondAttribute="bottom" constant="5" id="uaa-sj-XVN"/>
+                <constraint firstItem="8Hq-iR-dnq" firstAttribute="top" secondItem="7pb-gq-M6n" secondAttribute="bottom" id="uaa-sj-XVN"/>
             </constraints>
             <size key="customSize" width="150" height="179"/>
             <connections>
@@ -51,5 +52,8 @@
     </objects>
     <resources>
         <image name="aerial_8" width="1000" height="1334"/>
+        <namedColor name="Dynamic_label_color">
+            <color red="0.18823529411764706" green="0.22352941176470587" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -26,7 +26,12 @@ class ProductCell: UITableViewCell {
             productImage.kf.setImage(with: url)
         }
         productTitle.text = product.name
-        productPrice.text = String(product.price)
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        if let price = formatter.string(from: product.price as NSNumber) {
+            productPrice.text = price
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

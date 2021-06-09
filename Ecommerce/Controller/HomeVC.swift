@@ -108,6 +108,7 @@ class HomeVC: UIViewController {
         if user.isAnonymous {
             presentLogInController()
         } else {
+            // Sign out the logged–in user and sign in anonymously.
             do {
                 try Auth.auth().signOut()
                 Auth.auth().signInAnonymously { result, error in

@@ -10,28 +10,12 @@ import FirebaseAuth
 
 class LoginVC: UIViewController {
     
-    var handle: AuthStateDidChangeListenerHandle?
-    
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            // ...
-        }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        Auth.auth().removeStateDidChangeListener(handle!)
     }
     
     @IBAction func logInClicked(_ sender: UIButton) {
@@ -63,7 +47,7 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func logInAsGuestClicked(_ sender: UIButton) {
-        print("logInAsGuestClicked")
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func forgotPasswordClicked(_ sender: UIButton) {
