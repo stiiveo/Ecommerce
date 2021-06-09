@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5E8C76FB551124E1E3E6F5CD /* Pods_EcommerceAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5831C387FEBA0BE18ADA5377 /* Pods_EcommerceAdmin.framework */; };
+		8F27B9F8267071CC00C4AF00 /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F27B9F6267071CC00C4AF00 /* ProductDetailVC.swift */; };
+		8F27B9F9267071CC00C4AF00 /* ProductDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F27B9F7267071CC00C4AF00 /* ProductDetailVC.xib */; };
 		8F4DB984266DFCC6005D0138 /* ProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4DB983266DFCC6005D0138 /* ProductsVC.swift */; };
 		8F4DB985266DFCCE005D0138 /* ProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4DB983266DFCC6005D0138 /* ProductsVC.swift */; };
 		8F4DB987266DFD26005D0138 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4DB986266DFD26005D0138 /* Product.swift */; };
@@ -89,6 +91,8 @@
 		5831C387FEBA0BE18ADA5377 /* Pods_EcommerceAdmin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EcommerceAdmin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		787834C2FB87B214EE8E4169 /* Pods-Ecommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ecommerce.release.xcconfig"; path = "Target Support Files/Pods-Ecommerce/Pods-Ecommerce.release.xcconfig"; sourceTree = "<group>"; };
 		7F4E9F966CC5CBD3EF2A64AF /* Pods-EcommerceAdmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EcommerceAdmin.debug.xcconfig"; path = "Target Support Files/Pods-EcommerceAdmin/Pods-EcommerceAdmin.debug.xcconfig"; sourceTree = "<group>"; };
+		8F27B9F6267071CC00C4AF00 /* ProductDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVC.swift; sourceTree = "<group>"; };
+		8F27B9F7267071CC00C4AF00 /* ProductDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailVC.xib; sourceTree = "<group>"; };
 		8F4DB983266DFCC6005D0138 /* ProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsVC.swift; sourceTree = "<group>"; };
 		8F4DB986266DFD26005D0138 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		8F4DB989266DFDEC005D0138 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -372,6 +376,8 @@
 			children = (
 				8FD59EC3266CF8ED007F8FE9 /* ForgotPasswordVC.swift */,
 				8FD59EC4266CF8ED007F8FE9 /* ForgotPasswordVC.xib */,
+				8F27B9F6267071CC00C4AF00 /* ProductDetailVC.swift */,
+				8F27B9F7267071CC00C4AF00 /* ProductDetailVC.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -567,6 +573,7 @@
 				8FD59E4F266A018D007F8FE9 /* Assets.xcassets in Resources */,
 				8FD59EAE266A4BEF007F8FE9 /* GoogleService-Info.plist in Resources */,
 				8FD59ECC266DD759007F8FE9 /* Main.storyboard in Resources */,
+				8F27B9F9267071CC00C4AF00 /* ProductDetailVC.xib in Resources */,
 				8FD59EC6266CF8ED007F8FE9 /* ForgotPasswordVC.xib in Resources */,
 				8FD59EAC266A0D1F007F8FE9 /* LoginStoryBoard.storyboard in Resources */,
 			);
@@ -714,6 +721,7 @@
 				8F831A66266DEC7E009D74DF /* Category.swift in Sources */,
 				8FD59EB8266B14E4007F8FE9 /* RegisterVC.swift in Sources */,
 				8F4DB98B266DFDEC005D0138 /* ProductCell.swift in Sources */,
+				8F27B9F8267071CC00C4AF00 /* ProductDetailVC.swift in Sources */,
 				8F831A6A266DEDC8009D74DF /* CategoryCell.swift in Sources */,
 				8F4DB987266DFD26005D0138 /* Product.swift in Sources */,
 			);
