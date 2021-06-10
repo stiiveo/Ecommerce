@@ -19,27 +19,27 @@ class AdminProductsVC: ProductsVC {
     }
     
     @objc func editCategory() {
-        performSegue(withIdentifier: Constants.Segues.ToEditCategory, sender: self)
+        performSegue(withIdentifier: Segues.ToEditCategory, sender: self)
     }
     
     @objc func addProduct() {
-        performSegue(withIdentifier: Constants.Segues.ToAddEditProduct, sender: self)
+        performSegue(withIdentifier: Segues.ToAddEditProduct, sender: self)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Edit product.
         selectedProduct = products[indexPath.row]
-        performSegue(withIdentifier: Constants.Segues.ToAddEditProduct, sender: self)
+        performSegue(withIdentifier: Segues.ToAddEditProduct, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case Constants.Segues.ToAddEditProduct:
+        case Segues.ToAddEditProduct:
             if let destination = segue.destination as? AddEditProductVC {
                 destination.selectedCategory = category
                 destination.productToEdit = selectedProduct
             }
-        case Constants.Segues.ToEditCategory:
+        case Segues.ToEditCategory:
             if let destination = segue.destination as? AddEditCategoryVC {
                 destination.categoryToEdit = category
             }

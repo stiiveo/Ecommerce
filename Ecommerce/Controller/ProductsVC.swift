@@ -24,7 +24,7 @@ class ProductsVC: UIViewController {
         db = Firestore.firestore()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: Constants.Identifiers.ProductCell)
+        tableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: Identifiers.ProductCell)
         setUpQuery()
     }
     
@@ -89,7 +89,7 @@ extension ProductsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Identifiers.ProductCell, for: indexPath) as? ProductCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.ProductCell, for: indexPath) as? ProductCell {
             cell.configureCell(product: products[indexPath.row])
             return cell
         }

@@ -39,7 +39,7 @@ class HomeVC: UIViewController {
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: Constants.Identifiers.CategoryCell, bundle: nil), forCellWithReuseIdentifier: Constants.Identifiers.CategoryCell)
+        collectionView.register(UINib(nibName: Identifiers.CategoryCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.CategoryCell)
     }
     
     func setUpInitialAnonymousUser() {
@@ -96,8 +96,8 @@ class HomeVC: UIViewController {
     }
     
     fileprivate func presentLogInController() {
-        let storyboard = UIStoryboard(name: Constants.ViewController.LogIn.StoryboardName, bundle: nil)
-        let controller = storyboard.instantiateViewController(identifier: Constants.ViewController.LogIn.Identifier)
+        let storyboard = UIStoryboard(name: Storyboard.LoginStoryBoard, bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: StoryboardID.LogInVC)
         controller.modalTransitionStyle = .crossDissolve
         controller.modalPresentationStyle = .fullScreen
         present(controller, animated: true, completion: nil)
@@ -129,9 +129,9 @@ class HomeVC: UIViewController {
     
     fileprivate func updateLogButtonTitle() {
         if userIsAnonymous {
-            logInOutButton.title = Constants.ViewController.Home.Title.logIn
+            logInOutButton.title = BarButtonText.logIn
         } else {
-            logInOutButton.title = Constants.ViewController.Home.Title.logOut
+            logInOutButton.title = BarButtonText.logOut
         }
     }
     
@@ -173,7 +173,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.Identifiers.CategoryCell, for: indexPath) as? CategoryCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.CategoryCell, for: indexPath) as? CategoryCell {
             cell.configureCell(category: categories[indexPath.item])
             return cell
         }
@@ -189,11 +189,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedCategory = categories[indexPath.item]
-        performSegue(withIdentifier: Constants.Segues.ToProducts, sender: self)
+        performSegue(withIdentifier: Segues.ToProducts, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == Constants.Segues.ToProducts else { return }
+        guard segue.identifier == Segues.ToProducts else { return }
         if let destination = segue.destination as? ProductsVC {
             destination.category = selectedCategory
         }
