@@ -25,25 +25,16 @@ class ProductsVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ProductCell", bundle: nil), forCellReuseIdentifier: Constants.Identifiers.ProductCell)
+        setUpQuery()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        addQueryListener()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        listener.remove()
-    }
-    
-    func addQueryListener() {
+    func setUpQuery() {
         listener = db.products(category: category.id).addSnapshotListener({ snapshot, error in
             if let error = error {
                 debugPrint(error.localizedDescription)
                 return
             }
-            // Snapshot listener is successfully set up.
+            // Snapshot listener is successfully added.
             snapshot?.documentChanges.forEach({ change in
                 let data = change.document.data()
                 let product = Product(data: data)

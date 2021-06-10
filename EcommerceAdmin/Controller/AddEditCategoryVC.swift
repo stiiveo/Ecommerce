@@ -15,7 +15,7 @@ class AddEditCategoryVC: UIViewController {
     @IBOutlet weak var categoryImage: RoundedImageView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-    var placeHolderImage: UIImage!
+    var categoryToEdit: Category?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,6 @@ class AddEditCategoryVC: UIViewController {
         tap.numberOfTapsRequired = 1
         categoryImage.isUserInteractionEnabled = true
         categoryImage.addGestureRecognizer(tap)
-        placeHolderImage = categoryImage.image
     }
 
     @IBAction func addCategoryClicked(_ sender: Any) {
@@ -37,7 +36,7 @@ class AddEditCategoryVC: UIViewController {
     
     func uploadImageThenDocument() {
         // Make sure the user had provided valid name and image.
-        guard let image = categoryImage.image, image != placeHolderImage,
+        guard let image = categoryImage.image,
               let name = categoryName.text, name.isNotEmpty else {
             presentAlert(withTitle: "Error", message: "Category name and image are required.")
             debugPrint("User did not provide category image or name.")

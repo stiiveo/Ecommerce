@@ -62,11 +62,12 @@
                         <outlet property="collectionView" destination="3SL-3B-cdQ" id="iM9-o9-XDe"/>
                         <outlet property="logInOutButton" destination="xhE-0z-goi" id="X0b-VN-lMv"/>
                         <segue destination="2fr-Jv-Zjn" kind="show" identifier="ToAddEditCategory" id="1ph-Oi-9C1"/>
+                        <segue destination="pmt-MU-2yu" kind="show" identifier="toProductsVC" id="aH0-Xf-cQW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cba-Ep-5m1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="116"/>
+            <point key="canvasLocation" x="971" y="116"/>
         </scene>
         <!--Add Edit CategoryVC-->
         <scene sceneID="KY4-S8-NfB">
@@ -150,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doI-Yr-4r7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1826" y="116"/>
+            <point key="canvasLocation" x="1825" y="116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ce6-fw-VzW">
@@ -176,7 +177,66 @@
             </objects>
             <point key="canvasLocation" x="143" y="116"/>
         </scene>
+        <!--Admin ProductsVC-->
+        <scene sceneID="9pB-ez-67G">
+            <objects>
+                <viewController id="pmt-MU-2yu" customClass="AdminProductsVC" customModule="EcommerceAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Aw6-xP-jJh">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.20000000298023224" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_cat3" translatesAutoresizingMaskIntoConstraints="NO" id="86m-w2-F2l">
+                                <rect key="frame" x="0.0" y="88" width="390" height="756"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0rV-9l-4Jl">
+                                <rect key="frame" x="5" y="88" width="380" height="756"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="APG-Ff-SmW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="86m-w2-F2l" firstAttribute="top" secondItem="APG-Ff-SmW" secondAttribute="top" id="D5u-og-Pio"/>
+                            <constraint firstAttribute="bottom" secondItem="86m-w2-F2l" secondAttribute="bottom" id="WHP-BL-Mtv"/>
+                            <constraint firstItem="0rV-9l-4Jl" firstAttribute="top" secondItem="APG-Ff-SmW" secondAttribute="top" id="cd4-oQ-hlK"/>
+                            <constraint firstAttribute="bottom" secondItem="0rV-9l-4Jl" secondAttribute="bottom" id="fUE-Ln-3bU"/>
+                            <constraint firstItem="86m-w2-F2l" firstAttribute="leading" secondItem="APG-Ff-SmW" secondAttribute="leading" id="jan-67-e5U"/>
+                            <constraint firstItem="APG-Ff-SmW" firstAttribute="trailing" secondItem="0rV-9l-4Jl" secondAttribute="trailing" constant="5" id="rez-yG-r7Y"/>
+                            <constraint firstItem="0rV-9l-4Jl" firstAttribute="leading" secondItem="APG-Ff-SmW" secondAttribute="leading" constant="5" id="u98-eT-8ma"/>
+                            <constraint firstItem="86m-w2-F2l" firstAttribute="trailing" secondItem="APG-Ff-SmW" secondAttribute="trailing" id="uuc-9j-S5X"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ar2-pB-JX1"/>
+                    <connections>
+                        <outlet property="tableView" destination="0rV-9l-4Jl" id="3FC-RQ-Pc2"/>
+                        <segue destination="g0q-MJ-zZP" kind="show" identifier="ToAddEditProduct" id="O7K-iI-31F"/>
+                        <segue destination="2fr-Jv-Zjn" kind="show" identifier="ToEditCategory" id="bd6-TF-uUe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mik-vT-s5o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="971" y="834"/>
+        </scene>
+        <!--Add Edit ProductVC-->
+        <scene sceneID="aM9-Ff-Bz5">
+            <objects>
+                <viewController id="g0q-MJ-zZP" customClass="AddEditProductVC" customModule="EcommerceAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="86v-IT-FQj">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="bJS-3Z-S3F"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tET-tz-22V"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VV8-Mh-qsY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1825" y="834"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bd6-TF-uUe"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="bg_cat3" width="1500" height="1875"/>
         <image name="camera" width="66" height="54"/>
