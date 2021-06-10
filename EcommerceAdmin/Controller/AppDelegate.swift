@@ -7,11 +7,18 @@
 
 import UIKit
 import Firebase
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let keyboard = IQKeyboardManager.shared
+        keyboard.enable = true
+        keyboard.shouldShowToolbarPlaceholder = false
+        keyboard.shouldResignOnTouchOutside = true
+        keyboard.shouldToolbarUsesTextFieldTintColor = true
+        
         FirebaseApp.configure()
         return true
     }
