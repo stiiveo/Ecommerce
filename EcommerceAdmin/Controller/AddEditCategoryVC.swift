@@ -11,9 +11,11 @@ import FirebaseFirestore
 
 class AddEditCategoryVC: UIViewController {
 
-    @IBOutlet weak var categoryName: UITextField!
-    @IBOutlet weak var categoryImage: RoundedImageView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var hintLabel: UILabel!
+    @IBOutlet weak var imageView: RoundedImageView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var actionButton: RoundedButton!
     
     var categoryToEdit: Category?
     
@@ -21,11 +23,23 @@ class AddEditCategoryVC: UIViewController {
         super.viewDidLoad()
         let tap = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         tap.numberOfTapsRequired = 1
-        categoryImage.isUserInteractionEnabled = true
-        categoryImage.addGestureRecognizer(tap)
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tap)
+        
+        if let category = categoryToEdit {
+            // Populate the textField and imageView with data if editing is in progress.
+            nameTextField.text = category.name
+            hintLabel.text = "Tap image to change category image"
+            actionButton.setTitle("Save Changes", for: .normal)
+            
+            if let imageUrl = URL(string: category.imageURL) {
+                imageView.contentMode = .scaleAspectFill
+                imageView.kf.setImage(with: imageUrl)
+            }
+        }
     }
 
-    @IBAction func addCategoryClicked(_ sender: Any) {
+    @IBAction func buttonClicked(_ sender: Any) {
         indicator.startAnimating()
         uploadImageThenDocument()
     }
@@ -36,8 +50,8 @@ class AddEditCategoryVC: UIViewController {
     
     func uploadImageThenDocument() {
         // Make sure the user had provided valid name and image.
-        guard let image = categoryImage.image,
-              let name = categoryName.text, name.isNotEmpty else {
+        guard let image = imageView.image,
+              let name = nameTextField.text, name.isNotEmpty else {
             presentAlert(withTitle: "Error", message: "Category name and image are required.")
             debugPrint("User did not provide category image or name.")
             self.indicator.stopAnimating()
@@ -81,10 +95,17 @@ class AddEditCategoryVC: UIViewController {
     func uploadDocument(url: String) {
         // Initialize document reference and category objects.
         var docRef: DocumentReference!
-        var category = Category(name: categoryName.text!, id: "", imageURL: url, timestamp: Timestamp())
+        var category = Category(name: nameTextField.text!, id: "", imageURL: url, timestamp: Timestamp())
         
-        docRef = Firestore.firestore().collection("categories").document()
-        category.id = docRef.documentID
+        if let categoryToEdit = categoryToEdit {
+            // Edit existing category with user-edited data.
+            docRef = Firestore.firestore().collection("categories").document(categoryToEdit.id)
+            category.id = categoryToEdit.id
+        } else {
+            // Get a new document with an auto-generated document ID.
+            docRef = Firestore.firestore().collection("categories").document()
+            category.id = docRef.documentID
+        }
         
         // Add the document using the data converted from the Category object to Cloud FireStore.
         let data = Category.modelToData(category: category)
@@ -116,9 +137,9 @@ extension AddEditCategoryVC: UIImagePickerControllerDelegate, UINavigationContro
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let pickedImage = info[.originalImage] as? UIImage else { return }
-        categoryImage.contentMode = .scaleAspectFill
-        categoryImage.image = pickedImage
-        categoryImage.backgroundColor = .clear
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = pickedImage
+        imageView.backgroundColor = .clear
         dismiss(animated: true, completion: nil)
     }
     

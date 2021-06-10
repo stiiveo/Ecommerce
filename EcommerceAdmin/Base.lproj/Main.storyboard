@@ -77,8 +77,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bL0-6w-Nhu">
-                                <rect key="frame" x="121.00000000000001" y="108" width="148.33333333333337" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bL0-6w-Nhu">
+                                <rect key="frame" x="30" y="108" width="330" height="26"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                 <color key="textColor" red="0.18823529410000001" green="0.22352941179999999" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -118,7 +118,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="addCategoryClicked:" destination="2fr-Jv-Zjn" eventType="touchUpInside" id="9yD-jK-Lxs"/>
+                                    <action selector="buttonClicked:" destination="2fr-Jv-Zjn" eventType="touchUpInside" id="9yD-jK-Lxs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -127,9 +127,11 @@
                         <constraints>
                             <constraint firstItem="e5p-uw-9Fo" firstAttribute="centerX" secondItem="Yrg-M9-GNb" secondAttribute="centerX" id="1hd-c9-ywr"/>
                             <constraint firstAttribute="trailing" secondItem="pLf-kz-D7j" secondAttribute="trailing" constant="30" id="4LC-lN-EmQ"/>
+                            <constraint firstItem="k9d-Nf-KTk" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="bL0-6w-Nhu" secondAttribute="trailing" constant="30" id="D32-Wu-rDC"/>
                             <constraint firstItem="pLf-kz-D7j" firstAttribute="top" secondItem="K4s-dR-WK6" secondAttribute="bottom" constant="30" id="KfJ-g0-yhI"/>
                             <constraint firstItem="k9d-Nf-KTk" firstAttribute="trailing" secondItem="K4s-dR-WK6" secondAttribute="trailing" constant="30" id="Nfx-Tm-mPx"/>
                             <constraint firstItem="BCB-5m-MCj" firstAttribute="top" secondItem="e5p-uw-9Fo" secondAttribute="bottom" constant="20" id="Nyv-eD-Woo"/>
+                            <constraint firstItem="bL0-6w-Nhu" firstAttribute="leading" relation="lessThanOrEqual" secondItem="k9d-Nf-KTk" secondAttribute="leading" constant="30" id="PXD-DV-eeU"/>
                             <constraint firstItem="K4s-dR-WK6" firstAttribute="leading" secondItem="k9d-Nf-KTk" secondAttribute="leading" constant="30" id="SDj-hc-9ma"/>
                             <constraint firstItem="K4s-dR-WK6" firstAttribute="top" secondItem="bL0-6w-Nhu" secondAttribute="bottom" constant="15" id="TTK-o9-FyA"/>
                             <constraint firstItem="e5p-uw-9Fo" firstAttribute="top" secondItem="pLf-kz-D7j" secondAttribute="bottom" constant="20" id="UOB-Zs-jzY"/>
@@ -144,9 +146,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="mGS-xF-KoB"/>
                     <connections>
-                        <outlet property="categoryImage" destination="e5p-uw-9Fo" id="Rxt-mp-xX0"/>
-                        <outlet property="categoryName" destination="K4s-dR-WK6" id="pbD-Jh-076"/>
+                        <outlet property="actionButton" destination="G4k-TQ-cst" id="1QK-1p-C9F"/>
+                        <outlet property="hintLabel" destination="pLf-kz-D7j" id="j4f-Cs-eiI"/>
+                        <outlet property="imageView" destination="e5p-uw-9Fo" id="Rxt-mp-xX0"/>
                         <outlet property="indicator" destination="BCB-5m-MCj" id="dfC-3d-WnG"/>
+                        <outlet property="nameTextField" destination="K4s-dR-WK6" id="pbD-Jh-076"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doI-Yr-4r7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
