@@ -18,6 +18,7 @@ class AddEditCategoryVC: UIViewController {
     @IBOutlet weak var actionButton: RoundedButton!
     
     var categoryToEdit: Category?
+    var categoryToUpload: Category!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,14 +42,14 @@ class AddEditCategoryVC: UIViewController {
 
     @IBAction func buttonClicked(_ sender: Any) {
         indicator.startAnimating()
-        uploadImageThenDocument()
+        validateInputThenUpload()
     }
     
     @objc func imageTapped() {
         launchImagePicker()
     }
     
-    func uploadImageThenDocument() {
+    func validateInputThenUpload() {
         // Make sure the user had provided valid name and image.
         guard let image = imageView.image,
               let name = nameTextField.text, name.isNotEmpty else {
@@ -63,8 +64,14 @@ class AddEditCategoryVC: UIViewController {
             self.indicator.stopAnimating()
             return
         }
+        
+        categoryToUpload = Category(name: name, id: "", imageURL: "")
+        uploadImageThenDocument(imageData: imageData)
+    }
+    
+    func uploadImageThenDocument(imageData: Data) {
         // Create an image reference to the firebase storage.
-        let imageRef = Storage.storage().reference().child("categoryImages/\(name).jpg")
+        let imageRef = Storage.storage().reference().child("categoryImages/\(categoryToUpload.name).jpg")
         
         // Set the metadata
         let metaData = StorageMetadata()
@@ -86,30 +93,30 @@ class AddEditCategoryVC: UIViewController {
                     debugPrint("Failed to retrieve valid image url.")
                     return
                 }
+                self.categoryToUpload.imageURL = url.absoluteString
                 
                 // Upload new Category document to the FireStore categories collection.
-                self.uploadDocument(imageUrl: url.absoluteString)
+                self.uploadDocument()
             }
         }
     }
     
-    func uploadDocument(imageUrl: String) {
+    func uploadDocument() {
         // Initialize document reference and category objects.
         var docRef: DocumentReference!
-        var category = Category(name: nameTextField.text!, id: "", imageURL: imageUrl, timestamp: Timestamp())
         
         if let categoryToEdit = categoryToEdit {
             // Edit existing category with user-edited data.
             docRef = Firestore.firestore().collection("categories").document(categoryToEdit.id)
-            category.id = categoryToEdit.id
+            categoryToUpload.id = categoryToEdit.id
         } else {
             // Get a new document with an auto-generated document ID.
             docRef = Firestore.firestore().collection("categories").document()
-            category.id = docRef.documentID
+            categoryToUpload.id = docRef.documentID
         }
         
         // Add the document using the data converted from the Category object to Cloud FireStore.
-        let data = Category.modelToData(category: category)
+        let data = Category.modelToData(category: categoryToUpload)
         docRef.setData(data, merge: true) { error in
             if let error = error {
                 self.handleError(error: error, message: "Unable to upload data to the server.")
