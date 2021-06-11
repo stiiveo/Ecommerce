@@ -64,7 +64,7 @@ class RegisterVC: UIViewController {
     
     @IBAction func registerClicked(_ sender: UIButton) {
         // Do validations of the input the user provided here...
-        guard let userName = userNameText.text, userName.isNotEmpty,
+        guard let username = userNameText.text, username.isNotEmpty,
               let email = emailText.text, email.isNotEmpty,
               let password = passwordText.text, password.isNotEmpty,
               let confirmedPassword = confirmPasswordText.text, confirmedPassword.isNotEmpty else {
@@ -86,15 +86,37 @@ class RegisterVC: UIViewController {
         
         // Associate the current anonymous user's User UID with user–provided info.
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
-        currentUser.link(with: credential) { authDataResult, error in
+        currentUser.link(with: credential) { result, error in
             if let error = error {
                 // Failed to link provided credential with the current user.
-                debugPrint(error)
+                debugPrint(error.localizedDescription)
                 Auth.auth().presentFIRAuthErrorAlert(error: error, toViewController: self)
                 self.activityIndicator.stopAnimating()
                 return
             }
-            // Linking process is successful.
+            // Successfully linked the anonymous user with provided credential.
+            
+            // Upload 'User' object data to Firestore for easier query operation (denormalization).
+            guard let registeredUser = result?.user else {
+                debugPrint("Failed to retrieve registered user data.")
+                return
+            }
+            let user = User(id: registeredUser.uid, email: email, username: username, stripeId: "")
+            self.uploadUserToFirestore(user: user)
+        }
+    }
+    
+    func uploadUserToFirestore(user: User) {
+        // Document reference
+        let newUserRef = Firestore.firestore().collection("users").document(user.id)
+        let userData = User.modelToData(user: user)
+        newUserRef.setData(userData) { error in
+            guard error == nil else {
+                debugPrint(error!.localizedDescription)
+                Auth.auth().presentFIRAuthErrorAlert(error: error!, toViewController: self)
+                return
+            }
+            // User data is uploaded.
             self.activityIndicator.stopAnimating()
             self.dismiss(animated: true, completion: nil)
         }

@@ -13,7 +13,7 @@ struct BarButtonText {
 }
 
 struct StoryboardID {
-    static let LogInVC = "logInVC"
+    static let LogInVC = "LogInVC"
 }
 
 struct Storyboard {
