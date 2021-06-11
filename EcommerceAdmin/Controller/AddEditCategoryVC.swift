@@ -27,7 +27,7 @@ class AddEditCategoryVC: UIViewController {
         imageView.addGestureRecognizer(tap)
         
         if let category = categoryToEdit {
-            // Populate the textField and imageView with data if editing is in progress.
+            // Populate the UI with data if editing is in progress.
             nameTextField.text = category.name
             hintLabel.text = "Tap image to change category image"
             actionButton.setTitle("Save Changes", for: .normal)
@@ -59,11 +59,11 @@ class AddEditCategoryVC: UIViewController {
         }
         // Convert the image to jpeg data.
         guard let imageData = image.jpegData(compressionQuality: 0.2) else {
-            presentAlert(withTitle: "Error", message: "Sorry, something went wrong.")
+            presentAlert(withTitle: "Error", message: "Unable to convert image data.")
             self.indicator.stopAnimating()
             return
         }
-        // Create an image reference in the firebase storage.
+        // Create an image reference to the firebase storage.
         let imageRef = Storage.storage().reference().child("categoryImages/\(name).jpg")
         
         // Set the metadata
@@ -82,20 +82,21 @@ class AddEditCategoryVC: UIViewController {
                     self.handleError(error: error, message: "Unable to retrieve image url.")
                     return
                 }
-                guard let url = url else { return }
-                print(url)
+                guard let url = url else {
+                    debugPrint("Failed to retrieve valid image url.")
+                    return
+                }
                 
                 // Upload new Category document to the FireStore categories collection.
-                self.uploadDocument(url: url.absoluteString)
-                self.indicator.stopAnimating()
+                self.uploadDocument(imageUrl: url.absoluteString)
             }
         }
     }
     
-    func uploadDocument(url: String) {
+    func uploadDocument(imageUrl: String) {
         // Initialize document reference and category objects.
         var docRef: DocumentReference!
-        var category = Category(name: nameTextField.text!, id: "", imageURL: url, timestamp: Timestamp())
+        var category = Category(name: nameTextField.text!, id: "", imageURL: imageUrl, timestamp: Timestamp())
         
         if let categoryToEdit = categoryToEdit {
             // Edit existing category with user-edited data.
@@ -111,10 +112,10 @@ class AddEditCategoryVC: UIViewController {
         let data = Category.modelToData(category: category)
         docRef.setData(data, merge: true) { error in
             if let error = error {
-                self.handleError(error: error, message: "Unable to upload image to the server.")
+                self.handleError(error: error, message: "Unable to upload data to the server.")
                 return
             }
-            // Once the uploading is complete, dismiss the current top VC.
+            // Document is uploaded successfully.
             self.navigationController?.popViewController(animated: true)
             self.indicator.stopAnimating()
         }
@@ -139,7 +140,6 @@ extension AddEditCategoryVC: UIImagePickerControllerDelegate, UINavigationContro
         guard let pickedImage = info[.originalImage] as? UIImage else { return }
         imageView.contentMode = .scaleAspectFill
         imageView.image = pickedImage
-        imageView.backgroundColor = .clear
         dismiss(animated: true, completion: nil)
     }
     

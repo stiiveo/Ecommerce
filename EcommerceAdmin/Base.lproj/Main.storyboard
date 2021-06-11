@@ -238,7 +238,7 @@
                                             <constraint firstAttribute="height" constant="30" id="nd5-LC-84Q"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ijs-gG-ORz">
                                         <rect key="frame" x="0.0" y="42" width="330" height="30"/>
@@ -342,7 +342,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bd6-TF-uUe"/>
+        <segue reference="1ph-Oi-9C1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bg_cat3" width="1500" height="1875"/>

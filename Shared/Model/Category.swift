@@ -15,7 +15,11 @@ struct Category {
     var isActive: Bool = true
     var timestamp: Timestamp
     
-    init(name: String, id: String, imageURL: String, isActive: Bool = true, timestamp: Timestamp) {
+    init(name: String,
+         id: String,
+         imageURL: String,
+         isActive: Bool = true,
+         timestamp: Timestamp) {
         self.name = name
         self.id = id
         self.imageURL = imageURL

@@ -18,6 +18,12 @@ class AdminProductsVC: ProductsVC {
         navigationItem.setRightBarButtonItems([editCategoryButton, addProductButton], animated: false)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // Clear the selected product after user edited any product and come back to this VC.
+        selectedProduct = nil
+    }
+    
     @objc func editCategory() {
         performSegue(withIdentifier: Segues.ToEditCategory, sender: self)
     }
