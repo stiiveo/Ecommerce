@@ -21,13 +21,6 @@ class HomeVC: UIViewController {
     var db: Firestore!
     var listener: ListenerRegistration!
     
-    var userIsAnonymous: Bool {
-        if let user = Auth.auth().currentUser {
-            return user.isAnonymous
-        }
-        return false
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
@@ -47,18 +40,26 @@ class HomeVC: UIViewController {
             Auth.auth().signInAnonymously { authResult, error in
                 if let error = error {
                     // Failed to sign in the current user anonymously.
-                    debugPrint(error)
                     Auth.auth().presentFIRAuthErrorAlert(error: error, toViewController: self)
+                    debugPrint(error)
                 }
-                self.updateLogButtonTitle()
             }
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateLogButtonTitle()
-        addQueryListener()
+        addCategoriesListener()
+        if let user = Auth.auth().currentUser, !user.isAnonymous {
+            // User is signed in.
+            logInOutButton.title = BarButtonText.logOut
+            if UserService.userListener == nil {
+                UserService.getCurrentUser()
+            }
+        } else {
+            // User is signed out.
+            logInOutButton.title = BarButtonText.logIn
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,7 +74,7 @@ class HomeVC: UIViewController {
         collectionView.reloadData()
     }
     
-    func addQueryListener() {
+    func addCategoriesListener() {
         listener = db.categories.addSnapshotListener({ snapshot, error in
             if let error = error {
                 debugPrint(error.localizedDescription)
@@ -111,6 +112,7 @@ class HomeVC: UIViewController {
             // Sign out the logged–in user and sign in anonymously.
             do {
                 try Auth.auth().signOut()
+                UserService.logoutUser()
                 Auth.auth().signInAnonymously { result, error in
                     if let error = error {
                         // Failed to sign in anonymously.
@@ -124,14 +126,6 @@ class HomeVC: UIViewController {
                 debugPrint(error)
                 Auth.auth().presentFIRAuthErrorAlert(error: error, toViewController: self)
             }
-        }
-    }
-    
-    fileprivate func updateLogButtonTitle() {
-        if userIsAnonymous {
-            logInOutButton.title = BarButtonText.logIn
-        } else {
-            logInOutButton.title = BarButtonText.logOut
         }
     }
     

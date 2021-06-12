@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseFirestore
 
-class ProductsVC: UIViewController {
+class ProductsVC: UIViewController, ProductCellDelegate {
 
     // Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -50,6 +50,12 @@ class ProductsVC: UIViewController {
             })
         })
     }
+    
+    func productFavorited(product: Product) {
+        UserService.favoriteSelected(product: product)
+        guard let index = products.firstIndex(of: product) else { return }
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
 
 }
 
@@ -90,7 +96,7 @@ extension ProductsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.ProductCell, for: indexPath) as? ProductCell {
-            cell.configureCell(product: products[indexPath.row])
+            cell.configureCell(product: products[indexPath.row], delegate: self)
             return cell
         }
         return UITableViewCell()
