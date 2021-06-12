@@ -18,6 +18,7 @@ class ProductsVC: UIViewController, ProductCellDelegate {
     var category: Category!
     var listener: ListenerRegistration!
     var products = [Product]()
+    var showFavorites = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,14 @@ class ProductsVC: UIViewController, ProductCellDelegate {
     }
     
     func setUpQuery() {
-        listener = db.products(category: category.id).addSnapshotListener({ snapshot, error in
+        var ref: Query!
+        if showFavorites {
+            ref = db.collection("users").document(UserService.user.id).collection("favorites")
+        } else {
+            ref = db.products(category: category.id)
+        }
+        
+        listener = ref.addSnapshotListener({ snapshot, error in
             if let error = error {
                 debugPrint(error.localizedDescription)
                 return

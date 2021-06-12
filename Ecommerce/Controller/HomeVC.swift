@@ -104,6 +104,10 @@ class HomeVC: UIViewController {
         present(controller, animated: true, completion: nil)
     }
 
+    @IBAction func favoritesClicked(_ sender: Any) {
+        performSegue(withIdentifier: Segues.ToFavorites, sender: self)
+    }
+    
     @IBAction func logInOutButtonClicked(_ sender: UIBarButtonItem) {
         guard let user = Auth.auth().currentUser else { return }
         if user.isAnonymous {
@@ -187,10 +191,22 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == Segues.ToProducts else { return }
-        if let destination = segue.destination as? ProductsVC {
-            destination.category = selectedCategory
+        
+        switch segue.identifier {
+        case Segues.ToProducts:
+            if let destination = segue.destination as? ProductsVC {
+                destination.category = selectedCategory
+            }
+        case Segues.ToFavorites:
+            if let destination = segue.destination as? ProductsVC {
+                destination.category = selectedCategory
+                destination.showFavorites = true
+            }
+        default:
+            debugPrint("Invalid segue is provided: \(segue)")
+            return
         }
+        
     }
     
 }
