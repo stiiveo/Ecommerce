@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="180" id="KGk-i7-Jjw" customClass="CartItemCell" customModule="Ecommerce" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CartItemCell" rowHeight="180" id="KGk-i7-Jjw" customClass="CartItemCell" customModule="Ecommerce" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="503" height="124"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -27,15 +27,29 @@
                                     <constraint firstAttribute="width" secondItem="NwQ-6W-95s" secondAttribute="height" multiplier="1:1" id="Kgy-n3-4O4"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product Title $99.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRE-eM-efU">
-                                <rect key="frame" x="133" y="44" width="158" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <color key="textColor" red="0.18823529410000001" green="0.22352941179999999" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ST2-VT-Ssf">
+                                <rect key="frame" x="130" y="43" width="295" height="22.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rRE-eM-efU">
+                                        <rect key="frame" x="0.0" y="0.0" width="94.5" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" red="0.18823529410000001" green="0.22352941179999999" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ --" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="B4V-Fi-20l">
+                                        <rect key="frame" x="271.5" y="0.0" width="23.5" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <color key="textColor" red="0.18823529410000001" green="0.22352941179999999" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYx-bI-Bhy">
-                                <rect key="frame" x="447" y="39" width="28" height="30"/>
+                                <rect key="frame" x="455" y="44" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="M5i-Yr-WFa"/>
+                                    <constraint firstAttribute="height" constant="20" id="kUa-4P-0jK"/>
+                                </constraints>
                                 <state key="normal" image="red_trash"/>
                                 <connections>
                                     <action selector="removeItemClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="RfL-rp-sKL"/>
@@ -44,10 +58,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="IYx-bI-Bhy" firstAttribute="leading" secondItem="ST2-VT-Ssf" secondAttribute="trailing" constant="30" id="305-hw-oam"/>
                             <constraint firstItem="NwQ-6W-95s" firstAttribute="top" secondItem="xKs-U4-roI" secondAttribute="top" constant="8" id="3eW-jR-ycd"/>
                             <constraint firstAttribute="trailing" secondItem="IYx-bI-Bhy" secondAttribute="trailing" constant="12" id="Ccg-vF-lCm"/>
                             <constraint firstItem="IYx-bI-Bhy" firstAttribute="centerY" secondItem="xKs-U4-roI" secondAttribute="centerY" id="XHN-Fl-vYB"/>
+                            <constraint firstItem="ST2-VT-Ssf" firstAttribute="leading" secondItem="NwQ-6W-95s" secondAttribute="trailing" constant="30" id="gBB-4I-pYb"/>
                             <constraint firstItem="NwQ-6W-95s" firstAttribute="leading" secondItem="xKs-U4-roI" secondAttribute="leading" constant="8" id="rhY-ct-vOk"/>
+                            <constraint firstItem="ST2-VT-Ssf" firstAttribute="centerY" secondItem="xKs-U4-roI" secondAttribute="centerY" id="scv-GX-J1h"/>
                             <constraint firstAttribute="bottom" secondItem="NwQ-6W-95s" secondAttribute="bottom" constant="8" id="wOR-Zv-jNP"/>
                         </constraints>
                     </view>
@@ -61,6 +78,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="priceLabel" destination="B4V-Fi-20l" id="QWg-HH-MJ6"/>
                 <outlet property="productImage" destination="NwQ-6W-95s" id="kZn-3h-I39"/>
                 <outlet property="removeItemButton" destination="IYx-bI-Bhy" id="uqC-VX-fNR"/>
                 <outlet property="titleLabel" destination="rRE-eM-efU" id="NFf-0q-ef7"/>
