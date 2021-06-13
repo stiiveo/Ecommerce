@@ -31,6 +31,7 @@
 		8F542AD02671ED57009987B2 /* AddEditProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F542ACF2671ED57009987B2 /* AddEditProductVC.swift */; };
 		8F542AD226735AC7009987B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F542AD126735AC7009987B2 /* User.swift */; };
 		8F542AD526736810009987B2 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F542AD426736810009987B2 /* UserService.swift */; };
+		8F694FFA26760AEB00678F8A /* StripeCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F694FF926760AEB00678F8A /* StripeCart.swift */; };
 		8F831A66266DEC7E009D74DF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F831A65266DEC7E009D74DF /* Category.swift */; };
 		8F831A67266DEC7E009D74DF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F831A65266DEC7E009D74DF /* Category.swift */; };
 		8F831A6A266DEDC8009D74DF /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F831A68266DEDC8009D74DF /* CategoryCell.swift */; };
@@ -118,6 +119,7 @@
 		8F542ACF2671ED57009987B2 /* AddEditProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditProductVC.swift; sourceTree = "<group>"; };
 		8F542AD126735AC7009987B2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8F542AD426736810009987B2 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		8F694FF926760AEB00678F8A /* StripeCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCart.swift; sourceTree = "<group>"; };
 		8F831A65266DEC7E009D74DF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8F831A68266DEDC8009D74DF /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		8F831A69266DEDC8009D74DF /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
@@ -240,6 +242,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		8F694FF826760AD900678F8A /* Stripe */ = {
+			isa = PBXGroup;
+			children = (
+				8F694FF926760AEB00678F8A /* StripeCart.swift */,
+			);
+			path = Stripe;
+			sourceTree = "<group>";
+		};
 		8F831A6E266DEDD5009D74DF /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +292,7 @@
 		8FD59E44266A018B007F8FE9 /* Ecommerce */ = {
 			isa = PBXGroup;
 			children = (
+				8F694FF826760AD900678F8A /* Stripe */,
 				8F542AD3267367FC009987B2 /* Services */,
 				8FD59EC2266CF8C1007F8FE9 /* XIBs */,
 				8FD59EB2266B1407007F8FE9 /* View */,
@@ -772,6 +783,7 @@
 				8FD59EB8266B14E4007F8FE9 /* RegisterVC.swift in Sources */,
 				8F4DB98B266DFDEC005D0138 /* ProductCell.swift in Sources */,
 				8F27B9F8267071CC00C4AF00 /* ProductDetailVC.swift in Sources */,
+				8F694FFA26760AEB00678F8A /* StripeCart.swift in Sources */,
 				8F831A6A266DEDC8009D74DF /* CategoryCell.swift in Sources */,
 				8F4DB987266DFD26005D0138 /* Product.swift in Sources */,
 			);
