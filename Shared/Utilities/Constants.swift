@@ -8,8 +8,8 @@
 import UIKit
 
 struct BarButtonText {
-    static let logIn = "Log In"
-    static let logOut = "Log Out"
+    static let logIn = "Sign In"
+    static let logOut = "Sign Out"
 }
 
 struct StoryboardID {

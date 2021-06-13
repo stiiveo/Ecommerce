@@ -62,7 +62,7 @@
                                             <constraint firstAttribute="height" constant="40" id="gpg-HG-DsV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                        <state key="normal" title="Log In">
+                                        <state key="normal" title="Sign In">
                                             <color key="titleColor" red="0.95294117647058818" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>

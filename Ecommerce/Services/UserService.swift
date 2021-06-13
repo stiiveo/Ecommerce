@@ -13,6 +13,7 @@ let UserService = _UserService() // Access point to this class.
 
 final class _UserService {
     
+    // Variables
     var user = User()
     var favorites = [Product]()
     let auth = Auth.auth()
@@ -33,13 +34,13 @@ final class _UserService {
     func getCurrentUser() {
         guard let authUser = auth.currentUser else { return }
         let userRef = db.collection("users").document(authUser.uid)
-        userListener = userRef.addSnapshotListener({ snapshot, error in
+        userListener = userRef.addSnapshotListener({ userSnap, error in
             guard error == nil else {
                 debugPrint(error!.localizedDescription)
                 return
             }
             
-            guard let userData = snapshot?.data() else {
+            guard let userData = userSnap?.data() else {
                 debugPrint("Failed to retrieve valid user data from firestore.")
                 return
             }
@@ -47,14 +48,18 @@ final class _UserService {
             self.user = User(data: userData)
         })
         
+        getUserFavorites(userRef: userRef)
+    }
+    
+    func getUserFavorites(userRef: DocumentReference) {
         let favsRef = userRef.collection("favorites")
-        favsListener = favsRef.addSnapshotListener({ snapshot, error in
+        favsListener = favsRef.addSnapshotListener({ favsSnap, error in
             guard error == nil else {
                 debugPrint(error!.localizedDescription)
                 return
             }
             
-            snapshot?.documentChanges.forEach({ change in
+            favsSnap?.documentChanges.forEach({ change in
                 let data = change.document.data()
                 let favorite = Product(data: data)
                 self.favorites.append(favorite)

@@ -51,7 +51,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ecommerce" id="zqt-SY-U6p">
-                        <barButtonItem key="leftBarButtonItem" title="Log in" id="j5A-Jh-Qhy">
+                        <barButtonItem key="leftBarButtonItem" title="Sign in" id="j5A-Jh-Qhy">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="logInOutButtonClicked:" destination="BYZ-38-t0r" id="6QA-Fk-l4U"/>
                             </connections>
@@ -143,6 +144,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="cTv-oc-1Dd"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="bar_button_cart" width="27" height="24"/>
         <image name="bar_button_star" width="26" height="26"/>
