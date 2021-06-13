@@ -64,6 +64,10 @@ class ProductsVC: UIViewController, ProductCellDelegate {
         guard let index = products.firstIndex(of: product) else { return }
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
+    
+    func productAddedToCart(product: Product) {
+        StripeCart.addItemToCart(item: product)
+    }
 
 }
 

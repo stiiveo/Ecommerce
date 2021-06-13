@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CheckoutVC: UIViewController {
+class CheckoutVC: UIViewController, CartItemCellDelegate {
 
     // Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -21,9 +21,31 @@ class CheckoutVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpTableView()
+        updatePaymentInfo()
+    }
+    
+    fileprivate func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: Identifiers.CartItemCell, bundle: nil), forCellReuseIdentifier: Identifiers.CartItemCell)
+    }
+    
+    fileprivate func updatePaymentInfo() {
+        subtotalLabel.text = StripeCart.subtotal.penniesToFormattedCurrency()
+        processingLabel.text = StripeCart.processingFees.penniesToFormattedCurrency()
+        shippingCostLabel.text = StripeCart.shippingFees.penniesToFormattedCurrency()
+        totalLabel.text = StripeCart.total.penniesToFormattedCurrency()
+    }
+    
+    func cartItemIsRemoved(product: Product) {
+        guard let index = StripeCart.cartItems.firstIndex(of: product) else {
+            debugPrint("Cart item \(product.name) could not be removed since it cannot be found in the cart items array.")
+            return
+        }
+        StripeCart.removeItemFromCart(item: product)
+        tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        updatePaymentInfo()
     }
     
     @IBAction func placeOrderClicked(_ sender: Any) {
@@ -45,7 +67,7 @@ extension CheckoutVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.CartItemCell) as? CartItemCell {
             let product = StripeCart.cartItems[indexPath.row]
-            cell.configureCell(product: product)
+            cell.configureCell(product: product, delegate: self)
             return cell
         }
         

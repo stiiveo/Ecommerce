@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CartItemCellDelegate: AnyObject {
+    func cartItemIsRemoved(product: Product)
+}
+
 class CartItemCell: UITableViewCell {
 
     // Outlets
@@ -15,6 +19,8 @@ class CartItemCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var removeItemButton: UIButton!
     
+    weak var delegate: CartItemCellDelegate?
+    var product: Product!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +33,10 @@ class CartItemCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(product: Product) {
+    func configureCell(product: Product, delegate: CartItemCellDelegate) {
+        self.product = product
+        self.delegate = delegate
+        
         titleLabel.text = product.name
         
         let formatter = NumberFormatter()
@@ -44,5 +53,6 @@ class CartItemCell: UITableViewCell {
     }
     
     @IBAction func removeItemClicked(_ sender: Any) {
+        delegate?.cartItemIsRemoved(product: product)
     }
 }

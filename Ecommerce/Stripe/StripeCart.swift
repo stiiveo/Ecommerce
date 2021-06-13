@@ -18,6 +18,7 @@ final class _StripeCart {
     
     // Variables for subtotal, processing, total
     
+    /// Subtotal amount of the price in pennies.
     var subtotal: Int {
         var amount = 0
         for item in cartItems {

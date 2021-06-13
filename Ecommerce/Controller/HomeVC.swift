@@ -203,8 +203,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
                 destination.showFavorites = true
             }
         default:
-            debugPrint("Invalid segue is provided: \(segue)")
-            return
+            break
         }
         
     }
