@@ -24,11 +24,6 @@ class ProductCell: UITableViewCell {
     weak var delegate: ProductCellDelegate?
     private var product: Product!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func configureCell(product: Product, delegate: ProductCellDelegate) {
         self.product = product
         self.delegate = delegate

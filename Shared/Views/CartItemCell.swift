@@ -20,18 +20,7 @@ class CartItemCell: UITableViewCell {
     @IBOutlet weak var removeItemButton: UIButton!
     
     weak var delegate: CartItemCellDelegate?
-    var product: Product!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    private var product: Product!
     
     func configureCell(product: Product, delegate: CartItemCellDelegate) {
         self.product = product

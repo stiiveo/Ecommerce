@@ -44,7 +44,7 @@ class CheckoutVC: UIViewController, CartItemCellDelegate {
             return
         }
         StripeCart.removeItemFromCart(item: product)
-        tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .left)
         updatePaymentInfo()
     }
     
