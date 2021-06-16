@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Stripe
 
 class CheckoutVC: UIViewController, CartItemCellDelegate {
 
@@ -19,10 +20,14 @@ class CheckoutVC: UIViewController, CartItemCellDelegate {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // Variables
+    var paymentContext: STPPaymentContext!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
         updatePaymentInfo()
+        setUpStripeConfig()
     }
     
     fileprivate func setUpTableView() {
@@ -38,23 +43,41 @@ class CheckoutVC: UIViewController, CartItemCellDelegate {
         totalLabel.text = StripeCart.total.penniesToFormattedCurrency()
     }
     
-    func cartItemIsRemoved(product: Product) {
+    func setUpStripeConfig() {
+        let config = STPPaymentConfiguration.shared
+        config.requiredBillingAddressFields = .none
+        config.requiredShippingAddressFields = [.postalAddress]
+        
+        let customerContext = STPCustomerContext(keyProvider: StripeApi)
+        paymentContext = STPPaymentContext(customerContext: customerContext, configuration: config, theme: .defaultTheme)
+        
+        paymentContext.paymentAmount = StripeCart.total
+        paymentContext.delegate = self
+        paymentContext.hostViewController = self
+    }
+    
+    func removeItem(product: Product) {
         guard let index = StripeCart.cartItems.firstIndex(of: product) else {
             debugPrint("Cart item \(product.name) could not be removed since it cannot be found in the cart items array.")
             return
         }
-        StripeCart.removeItemFromCart(item: product)
         tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .left)
+        StripeCart.removeItemFromCart(item: product)
         updatePaymentInfo()
+        
+        // Update the amount the user is to be charged.
+        paymentContext.paymentAmount = StripeCart.total
     }
     
     @IBAction func placeOrderClicked(_ sender: Any) {
     }
     
     @IBAction func paymentMethodClicked(_ sender: Any) {
+        paymentContext.pushPaymentOptionsViewController()
     }
     
     @IBAction func shippingMethodClicked(_ sender: Any) {
+        paymentContext.pushShippingViewController()
     }
 }
 
@@ -78,4 +101,22 @@ extension CheckoutVC: UITableViewDelegate, UITableViewDataSource {
         return 100
     }
     
+}
+
+extension CheckoutVC: STPPaymentContextDelegate {
+    func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
+        
+    }
+    
+    func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
+        
+    }
+    
+    func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPPaymentStatusBlock) {
+        
+    }
+    
+    func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
+        
+    }
 }

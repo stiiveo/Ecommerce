@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CartItemCellDelegate: AnyObject {
-    func cartItemIsRemoved(product: Product)
+    func removeItem(product: Product)
 }
 
 class CartItemCell: UITableViewCell {
@@ -42,6 +42,6 @@ class CartItemCell: UITableViewCell {
     }
     
     @IBAction func removeItemClicked(_ sender: Any) {
-        delegate?.cartItemIsRemoved(product: product)
+        delegate?.removeItem(product: product)
     }
 }

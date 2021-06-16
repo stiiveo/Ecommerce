@@ -7,12 +7,14 @@
 
 import UIKit
 import Firebase
+import Stripe
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        StripeAPI.defaultPublishableKey = "pk_test_51J1mKIAqLZa7BNSnUTK00VWM7WrffRPxBy6OeMPMK19MmAkX3qHtKWqmUAL4hVXSC4dHJAnFL6Xul2bsHrnWUi1x00MSwej9bd"
         return true
     }
 
