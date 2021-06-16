@@ -13,6 +13,10 @@ let StripeApi = _StripeApi()
 
 class _StripeApi: NSObject, STPCustomerEphemeralKeyProvider {
     
+    /// Invoke the function stored on the firebase cloud to retrieve the ephemeral key of the customer from Stripe.
+    /// - Parameters:
+    ///   - apiVersion: The Stripe API version used by the client device.
+    ///   - completion: A callback to be run with a JSON response.
     func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
         let data = [
             "apiVersion": apiVersion,
