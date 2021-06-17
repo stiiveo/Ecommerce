@@ -39,6 +39,9 @@
 		8F831A6C266DEDC8009D74DF /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F831A69266DEDC8009D74DF /* CategoryCell.xib */; };
 		8F831A6D266DEDC8009D74DF /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F831A69266DEDC8009D74DF /* CategoryCell.xib */; };
 		8F9F1CA32679CD65003EC051 /* StripeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F1CA22679CD65003EC051 /* StripeApi.swift */; };
+		8F9F1CA4267B6802003EC051 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F542AD426736810009987B2 /* UserService.swift */; };
+		8F9F1CA5267B6808003EC051 /* StripeCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F694FF926760AEB00678F8A /* StripeCart.swift */; };
+		8F9F1CA6267B6855003EC051 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F542AD126735AC7009987B2 /* User.swift */; };
 		8FD59E46266A018B007F8FE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59E45266A018B007F8FE9 /* AppDelegate.swift */; };
 		8FD59E48266A018B007F8FE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59E47266A018B007F8FE9 /* SceneDelegate.swift */; };
 		8FD59E4A266A018B007F8FE9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59E49266A018B007F8FE9 /* HomeVC.swift */; };
@@ -815,11 +818,14 @@
 			files = (
 				8FD59E80266A027B007F8FE9 /* AdminHomeVC.swift in Sources */,
 				8F27B9FC2670B71400C4AF00 /* RoundedViews.swift in Sources */,
+				8F9F1CA4267B6802003EC051 /* UserService.swift in Sources */,
 				8F27B9FB2670B6EF00C4AF00 /* HomeVC.swift in Sources */,
 				8F4DB988266DFD33005D0138 /* Product.swift in Sources */,
 				8FD59E7C266A027B007F8FE9 /* AppDelegate.swift in Sources */,
 				8FD59E7E266A027B007F8FE9 /* SceneDelegate.swift in Sources */,
 				8F542ACE2671E6ED009987B2 /* AdminProductsVC.swift in Sources */,
+				8F9F1CA6267B6855003EC051 /* User.swift in Sources */,
+				8F9F1CA5267B6808003EC051 /* StripeCart.swift in Sources */,
 				8F542AD02671ED57009987B2 /* AddEditProductVC.swift in Sources */,
 				8FD59EC9266DCA1F007F8FE9 /* Firebase+Utilities.swift in Sources */,
 				8F542ACB2670BBBF009987B2 /* AddEditCategoryVC.swift in Sources */,
