@@ -68,14 +68,14 @@ class RegisterVC: UIViewController {
               let email = emailText.text, email.isNotEmpty,
               let password = passwordText.text, password.isNotEmpty,
               let confirmedPassword = confirmPasswordText.text, confirmedPassword.isNotEmpty else {
-            presentAlert(withTitle: "Error", message: "Please fill out all fields.")
+            presentSimpleAlert(withTitle: "Error", message: "Please fill out all fields.")
             debugPrint("One or more fields are empty.")
             return
         }
         
         // Make sure both values in the password fields are identical.
         guard password == confirmedPassword else {
-            presentAlert(withTitle: "Error", message: "Passwords do not match.")
+            presentSimpleAlert(withTitle: "Error", message: "Passwords do not match.")
             debugPrint("User–provided password and confirm password does not match.")
             return
         }

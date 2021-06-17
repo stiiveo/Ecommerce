@@ -105,7 +105,19 @@ class HomeVC: UIViewController {
     }
 
     @IBAction func favoritesClicked(_ sender: Any) {
+        if UserService.isGuest {
+            presentAlertToGuest()
+            return
+        }
         performSegue(withIdentifier: Segues.ToFavorites, sender: self)
+    }
+    
+    @IBAction func cartButtonClicked(_ sender: Any) {
+        if UserService.isGuest {
+            presentAlertToGuest()
+            return
+        }
+        performSegue(withIdentifier: Segues.HomeToCheckout, sender: self)
     }
     
     @IBAction func logInOutButtonClicked(_ sender: UIBarButtonItem) {

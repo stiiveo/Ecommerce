@@ -15,10 +15,14 @@ extension String {
 }
 
 extension UIViewController {
-    func presentAlert(withTitle title: String, message: String) {
+    func presentSimpleAlert(withTitle title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    func presentAlertToGuest() {
+        self.presentSimpleAlert(withTitle: "Hi friend!", message: "This is a user only feature, please sign in or sign up to enjoy all of the features.")
     }
 }
 

@@ -27,7 +27,7 @@ class ForgotPasswordVC: UIViewController {
         guard let email = emailTextField.text,
               email.isNotEmpty else {
             debugPrint("Email value is empty.")
-            presentAlert(withTitle: "Error", message: "Please provide your email.")
+            presentSimpleAlert(withTitle: "Error", message: "Please provide your email.")
             return
         }
         

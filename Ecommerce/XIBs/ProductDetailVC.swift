@@ -42,6 +42,11 @@ class ProductDetailVC: UIViewController {
     }
 
     @IBAction func addToCartClicked(_ sender: Any) {
+        if UserService.isGuest {
+            presentAlertToGuest()
+            return
+        }
+        
         StripeCart.addItemToCart(item: product)
         dismiss(animated: true, completion: nil)
     }

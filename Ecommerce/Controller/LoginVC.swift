@@ -26,7 +26,7 @@ class LoginVC: UIViewController {
         }
         
         guard email.isNotEmpty, password.isNotEmpty else {
-            presentAlert(withTitle: "Error", message: "Email and password are required.")
+            presentSimpleAlert(withTitle: "Error", message: "Email and password are required.")
             debugPrint("User did not provide email and/or password.")
             return
         }

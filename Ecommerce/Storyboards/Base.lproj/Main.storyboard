@@ -59,12 +59,12 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="bar_button_cart" id="iAo-MO-7YO">
+                            <barButtonItem title="Item" image="bar_button_cart" id="iAo-MO-7YO" userLabel="Cart Button">
                                 <connections>
-                                    <segue destination="ltA-Sv-NSe" kind="show" id="obv-Pb-2qQ"/>
+                                    <action selector="cartButtonClicked:" destination="BYZ-38-t0r" id="s05-dX-Zsg"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="bar_button_star" id="o6I-li-f9F">
+                            <barButtonItem title="Item" image="bar_button_star" id="o6I-li-f9F" userLabel="Fav Button">
                                 <connections>
                                     <action selector="favoritesClicked:" destination="BYZ-38-t0r" id="eWk-xT-wkL"/>
                                 </connections>
@@ -77,6 +77,7 @@
                         <outlet property="logInOutButton" destination="j5A-Jh-Qhy" id="MLl-U4-465"/>
                         <segue destination="6xT-Hn-Ouh" kind="show" identifier="toProductsVC" id="k91-2z-c4v"/>
                         <segue destination="6xT-Hn-Ouh" kind="show" identifier="ToFavorites" id="cTv-oc-1Dd"/>
+                        <segue destination="ltA-Sv-NSe" kind="show" identifier="HomeToCheckout" id="a0V-9v-A7e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -113,14 +114,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kYz-vc-D4O">
-                        <barButtonItem key="rightBarButtonItem" image="bar_button_cart" id="KJm-Is-IvD">
+                        <barButtonItem key="rightBarButtonItem" image="bar_button_cart" id="KJm-Is-IvD" userLabel="Cart Button">
                             <connections>
-                                <segue destination="ltA-Sv-NSe" kind="show" id="hPC-Qz-fd9"/>
+                                <action selector="cartButtonClicked:" destination="6xT-Hn-Ouh" id="Xsc-sd-nfZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="kTt-Qo-poi" id="OQM-2Z-IJ6"/>
+                        <segue destination="ltA-Sv-NSe" kind="show" identifier="ProductsToCheckout" id="d3S-fq-kuD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLA-BM-BL2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -350,14 +352,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="obv-Pb-2qQ"/>
+        <segue reference="d3S-fq-kuD"/>
         <segue reference="cTv-oc-1Dd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="bar_button_cart" width="27" height="24"/>
         <image name="bar_button_star" width="26" height="26"/>
-        <image name="bg_cat3" width="1500" height="1875"/>
+        <image name="bg_cat3" width="819" height="1024"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

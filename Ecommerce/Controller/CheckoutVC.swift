@@ -159,7 +159,7 @@ extension CheckoutVC: STPPaymentContextDelegate {
         Functions.functions().httpsCallable("createCharge").call(data) { result, error in
             if let error = error {
                 debugPrint(error.localizedDescription)
-                self.presentAlert(withTitle: "Error", message: "Unable to make charge.")
+                self.presentSimpleAlert(withTitle: "Error", message: "Unable to make charge.")
                 completion(.error, error)
                 return
             }
@@ -186,12 +186,13 @@ extension CheckoutVC: STPPaymentContextDelegate {
             return
         }
         
-        activityIndicator.stopAnimating()
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { action in
             self.navigationController?.popViewController(animated: true)
         }
         alert.addAction(action)
+        
+        activityIndicator.stopAnimating()
         present(alert, animated: true, completion: nil)
     }
     

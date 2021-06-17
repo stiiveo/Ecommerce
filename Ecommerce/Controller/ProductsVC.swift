@@ -60,15 +60,31 @@ class ProductsVC: UIViewController, ProductCellDelegate {
     }
     
     func productFavorited(product: Product) {
+        if UserService.isGuest {
+            presentAlertToGuest()
+            return
+        }
         UserService.favoriteSelected(product: product)
         guard let index = products.firstIndex(of: product) else { return }
         tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
     
     func productAddedToCart(product: Product) {
+        if UserService.isGuest {
+            presentAlertToGuest()
+            return
+        }
         StripeCart.addItemToCart(item: product)
     }
 
+    @IBAction func cartButtonClicked(_ sender: Any) {
+        if UserService.isGuest {
+            presentAlertToGuest()
+            return
+        }
+        performSegue(withIdentifier: Segues.ProductsToCheckout, sender: self)
+    }
+    
 }
 
 extension ProductsVC: UITableViewDelegate, UITableViewDataSource {
