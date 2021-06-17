@@ -89,7 +89,7 @@ final class _UserService {
         favsListener = nil
         user = User()
         favorites.removeAll()
-        StripeCart.cartItems.removeAll()
+        StripeCart.clearCart()
     }
     
 }

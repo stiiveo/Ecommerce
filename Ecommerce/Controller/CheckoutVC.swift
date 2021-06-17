@@ -8,6 +8,7 @@
 import UIKit
 import Stripe
 import PassKit
+import FirebaseFunctions
 
 class CheckoutVC: UIViewController, CartItemCellDelegate {
 
@@ -71,6 +72,8 @@ class CheckoutVC: UIViewController, CartItemCellDelegate {
     }
     
     @IBAction func placeOrderClicked(_ sender: Any) {
+        paymentContext.requestPayment()
+        activityIndicator.startAnimating()
     }
     
     @IBAction func paymentMethodClicked(_ sender: Any) {
@@ -144,11 +147,51 @@ extension CheckoutVC: STPPaymentContextDelegate {
     }
     
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPPaymentStatusBlock) {
+        // Create an idempotent key using built-in UUID string variable with the dash characters being removed.
+        let idempotencyKey = UUID().uuidString.replacingOccurrences(of: "-", with: "")
+        let data: [String: Any] = [
+            "total": StripeCart.total,
+            "customerId": UserService.user.id,
+            "idempotency": idempotencyKey
+        ]
         
+        Functions.functions().httpsCallable("makeCharge").call(data) { result, error in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.presentAlert(withTitle: "Error", message: "Unable to make charge.")
+                completion(.error, error)
+                return
+            }
+            // The cloud function is executed successfully.
+            StripeCart.clearCart()
+            self.tableView.reloadData()
+            self.updatePaymentInfo()
+            completion(.success, nil)
+        }
     }
     
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
+        var title: String
+        var message: String
         
+        switch status {
+        case .success:
+            title = "Success!"
+            message = "Thank you for your purchase."
+        case .error:
+            title = "Error"
+            message = error?.localizedDescription ?? ""
+        case .userCancellation:
+            return
+        }
+        
+        activityIndicator.stopAnimating()
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { action in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
     func paymentContext(_ paymentContext: STPPaymentContext, didUpdateShippingAddress address: STPAddress, completion: @escaping STPShippingMethodsCompletionBlock) {
