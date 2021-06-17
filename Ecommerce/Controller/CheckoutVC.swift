@@ -63,8 +63,8 @@ class CheckoutVC: UIViewController, CartItemCellDelegate {
             debugPrint("Cart item \(product.name) could not be removed since it cannot be found in the cart items array.")
             return
         }
-        tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .left)
         StripeCart.removeItemFromCart(item: product)
+        tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .left)
         updatePaymentInfo()
         
         // Update the amount the user is to be charged.
@@ -150,12 +150,13 @@ extension CheckoutVC: STPPaymentContextDelegate {
         // Create an idempotent key using built-in UUID string variable with the dash characters being removed.
         let idempotencyKey = UUID().uuidString.replacingOccurrences(of: "-", with: "")
         let data: [String: Any] = [
-            "total": StripeCart.total,
-            "customerId": UserService.user.id,
+            "total_amount": StripeCart.total,
+            "customer_id": UserService.user.stripeId,
+            "payment_method_id": paymentResult.paymentMethod?.stripeId ?? "",
             "idempotency": idempotencyKey
         ]
         
-        Functions.functions().httpsCallable("makeCharge").call(data) { result, error in
+        Functions.functions().httpsCallable("createCharge").call(data) { result, error in
             if let error = error {
                 debugPrint(error.localizedDescription)
                 self.presentAlert(withTitle: "Error", message: "Unable to make charge.")
