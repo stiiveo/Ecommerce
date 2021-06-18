@@ -66,7 +66,7 @@ class AddEditProductVC: UIViewController {
               let priceText = priceTextField.text, let price = Double(priceText),
               let image = imageView.image,
               let description = descriptionTextView.text, description.isNotEmpty else {
-            presentAlert(withTitle: "Error", message: "Please fill out all information.")
+            presentSimpleAlert(withTitle: "Error", message: "Please fill out all information.")
             debugPrint("User did not provide needed info.")
             indicator.stopAnimating()
             return
@@ -74,7 +74,7 @@ class AddEditProductVC: UIViewController {
         
         // Convert image into jpeg data.
         guard let imageData = image.jpegData(compressionQuality: 0.2) else {
-            presentAlert(withTitle: "Error", message: "Unable to convert image data.")
+            presentSimpleAlert(withTitle: "Error", message: "Unable to convert image data.")
             debugPrint("Failed to convert image to jpeg data.")
             indicator.stopAnimating()
             return
@@ -147,7 +147,7 @@ class AddEditProductVC: UIViewController {
     }
     
     func handleError(error: Error, message: String) {
-        presentAlert(withTitle: "Error", message: message)
+        presentSimpleAlert(withTitle: "Error", message: message)
         debugPrint(error.localizedDescription)
         indicator.stopAnimating()
     }

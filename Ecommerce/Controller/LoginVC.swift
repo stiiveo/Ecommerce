@@ -34,13 +34,13 @@ class LoginVC: UIViewController {
         activityIndicator.startAnimating()
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
-                // Failed to sign in.
+                // Unable to sign in with provided credential infos.
                 debugPrint(error)
                 Auth.auth().presentFIRAuthErrorAlert(error: error, toViewController: self)
                 self.activityIndicator.stopAnimating()
                 return
             }
-            // auth success...
+            // User is successfully signed in.
             self.activityIndicator.stopAnimating()
             self.dismiss(animated: true, completion: nil)
         }

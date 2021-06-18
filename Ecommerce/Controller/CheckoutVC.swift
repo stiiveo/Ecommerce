@@ -163,7 +163,7 @@ extension CheckoutVC: STPPaymentContextDelegate {
                 completion(.error, error)
                 return
             }
-            // The cloud function is executed successfully.
+            // The payment is successfully charged.
             StripeCart.clearCart()
             self.tableView.reloadData()
             self.updatePaymentInfo()

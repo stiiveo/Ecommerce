@@ -53,14 +53,14 @@ class AddEditCategoryVC: UIViewController {
         // Make sure the user had provided valid name and image.
         guard let image = imageView.image,
               let name = nameTextField.text, name.isNotEmpty else {
-            presentAlert(withTitle: "Error", message: "Category name and image are required.")
+            presentSimpleAlert(withTitle: "Error", message: "Category name and image are required.")
             debugPrint("User did not provide category image or name.")
             self.indicator.stopAnimating()
             return
         }
         // Convert the image to jpeg data.
         guard let imageData = image.jpegData(compressionQuality: 0.2) else {
-            presentAlert(withTitle: "Error", message: "Unable to convert image data.")
+            presentSimpleAlert(withTitle: "Error", message: "Unable to convert image data.")
             self.indicator.stopAnimating()
             return
         }
@@ -130,8 +130,8 @@ class AddEditCategoryVC: UIViewController {
     
     func handleError(error: Error, message: String) {
         debugPrint(error.localizedDescription)
-        self.presentAlert(withTitle: "Error", message: message)
-        self.indicator.stopAnimating()
+        presentSimpleAlert(withTitle: "Error", message: message)
+        indicator.stopAnimating()
     }
 }
 

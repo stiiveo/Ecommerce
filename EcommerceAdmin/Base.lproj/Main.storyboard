@@ -51,7 +51,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="admin" id="Z4a-9J-lEx">
-                        <barButtonItem key="leftBarButtonItem" title="Log in" id="xhE-0z-goi">
+                        <barButtonItem key="leftBarButtonItem" title="Sign in" id="xhE-0z-goi" userLabel="Signing Button">
                             <connections>
                                 <action selector="logInOutButtonClicked:" destination="5q5-UV-nvj" id="pm5-aZ-9ba"/>
                             </connections>
@@ -345,7 +345,7 @@
         <segue reference="1ph-Oi-9C1"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="bg_cat3" width="1500" height="1875"/>
+        <image name="bg_cat3" width="819" height="1024"/>
         <image name="camera" width="66" height="54"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
