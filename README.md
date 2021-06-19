@@ -1,6 +1,8 @@
 # iOS App: Ecommerce
 A simple ecommerce App with cloud database and Stripe integration.
 
+![Screenshot](./Docs/screenshots.png)
+
 ### Sneak Peek
 Video: https://youtu.be/KzO8K4Bvrzo
 
