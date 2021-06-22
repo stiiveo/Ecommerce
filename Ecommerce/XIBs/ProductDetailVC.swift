@@ -12,7 +12,7 @@ class ProductDetailVC: UIViewController {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productTitle: UILabel!
     @IBOutlet weak var productPrice: UILabel!
-    @IBOutlet weak var productDescription: UILabel!
+    @IBOutlet weak var productDescription: UITextView!
     @IBOutlet weak var backgroundView: UIVisualEffectView!
     
     var product: Product!
