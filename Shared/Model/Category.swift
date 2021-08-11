@@ -24,9 +24,10 @@ struct Category {
         self.id = id
         self.imageURL = imageURL
         self.isActive = isActive
-        self.timestamp = timestamp 
+        self.timestamp = timestamp
     }
     
+    /// Initialize `Category` object by using type `[String: Any?]` object.
     init(data: [String: Any?]) {
         self.name = data["name"] as? String ?? ""
         self.id = data["id"] as? String ?? ""
@@ -35,6 +36,7 @@ struct Category {
         self.timestamp = data["timestamp"] as? Timestamp ?? Timestamp()
     }
     
+    /// Create a `[String: Any]` type object by converting the specified `Category` object.
     static func modelToData(category: Category) -> [String: Any] {
         let data: [String: Any] = [
             "name": category.name,

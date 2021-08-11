@@ -63,6 +63,12 @@ struct Product {
 }
 
 extension Product: Equatable {
+    /// Compares and returns if the specified`Product` object on the left hand side
+    /// is equal to the one on the right hand side.
+    /// - Parameters:
+    ///   - lhs: `Product` on the left hand side of the equation.
+    ///   - rhs: `Product` on the right hand side of the equation.
+    /// - Returns: Returns true if the 2 specified `Product`s are the same.
     static func ==(lhs: Product, rhs: Product) -> Bool {
         return lhs.id == rhs.id
     }
