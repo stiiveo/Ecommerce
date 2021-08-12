@@ -32,6 +32,13 @@
 		8F542AD226735AC7009987B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F542AD126735AC7009987B2 /* User.swift */; };
 		8F542AD526736810009987B2 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F542AD426736810009987B2 /* UserService.swift */; };
 		8F694FFA26760AEB00678F8A /* StripeCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F694FF926760AEB00678F8A /* StripeCart.swift */; };
+		8F7C8D2326C4F67B009B09A5 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EB7266B14E4007F8FE9 /* RegisterVC.swift */; };
+		8F7C8D2426C4F67D009B09A5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EB5266B14D2007F8FE9 /* LoginVC.swift */; };
+		8F7C8D2526C4F682009B09A5 /* LoginStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59EAB266A0D1F007F8FE9 /* LoginStoryBoard.storyboard */; };
+		8F7C8D2626C4F6AC009B09A5 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EC3266CF8ED007F8FE9 /* ForgotPasswordVC.swift */; };
+		8F7C8D2726C4F6AE009B09A5 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59EC4266CF8ED007F8FE9 /* ForgotPasswordVC.xib */; };
+		8F7C8D2926C4F747009B09A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F7C8D2826C4F747009B09A5 /* GoogleService-Info.plist */; };
+		8F7C8D2B26C4F778009B09A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F7C8D2A26C4F778009B09A5 /* GoogleService-Info.plist */; };
 		8F831A66266DEC7E009D74DF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F831A65266DEC7E009D74DF /* Category.swift */; };
 		8F831A67266DEC7E009D74DF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F831A65266DEC7E009D74DF /* Category.swift */; };
 		8F831A6A266DEDC8009D74DF /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F831A68266DEDC8009D74DF /* CategoryCell.swift */; };
@@ -55,8 +62,6 @@
 		8FD59E88266A027D007F8FE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59E86266A027D007F8FE9 /* LaunchScreen.storyboard */; };
 		8FD59EAA266A0331007F8FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59E4E266A018D007F8FE9 /* Assets.xcassets */; };
 		8FD59EAC266A0D1F007F8FE9 /* LoginStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59EAB266A0D1F007F8FE9 /* LoginStoryBoard.storyboard */; };
-		8FD59EAE266A4BEF007F8FE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59EAD266A4BEF007F8FE9 /* GoogleService-Info.plist */; };
-		8FD59EB0266A5204007F8FE9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FD59EAF266A5203007F8FE9 /* GoogleService-Info.plist */; };
 		8FD59EB6266B14D2007F8FE9 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EB5266B14D2007F8FE9 /* LoginVC.swift */; };
 		8FD59EB8266B14E4007F8FE9 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EB7266B14E4007F8FE9 /* RegisterVC.swift */; };
 		8FD59EBB266B2E4C007F8FE9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD59EBA266B2E4C007F8FE9 /* Extensions.swift */; };
@@ -90,6 +95,8 @@
 		8F542AD126735AC7009987B2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8F542AD426736810009987B2 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		8F694FF926760AEB00678F8A /* StripeCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCart.swift; sourceTree = "<group>"; };
+		8F7C8D2826C4F747009B09A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8F7C8D2A26C4F778009B09A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8F831A65266DEC7E009D74DF /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		8F831A68266DEDC8009D74DF /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		8F831A69266DEDC8009D74DF /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
@@ -110,8 +117,6 @@
 		8FD59E87266A027D007F8FE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FD59E89266A027D007F8FE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FD59EAB266A0D1F007F8FE9 /* LoginStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryBoard.storyboard; sourceTree = "<group>"; };
-		8FD59EAD266A4BEF007F8FE9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		8FD59EAF266A5203007F8FE9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FD59EB5266B14D2007F8FE9 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		8FD59EB7266B14E4007F8FE9 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		8FD59EBA266B2E4C007F8FE9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -233,7 +238,7 @@
 				8FD59EB1266B13FE007F8FE9 /* Controller */,
 				8FD59EB4266B1413007F8FE9 /* Storyboards */,
 				8FD59E53266A018D007F8FE9 /* Info.plist */,
-				8FD59EAD266A4BEF007F8FE9 /* GoogleService-Info.plist */,
+				8F7C8D2826C4F747009B09A5 /* GoogleService-Info.plist */,
 			);
 			path = Ecommerce;
 			sourceTree = "<group>";
@@ -246,7 +251,7 @@
 				8FD59E81266A027B007F8FE9 /* Main.storyboard */,
 				8FD59E86266A027D007F8FE9 /* LaunchScreen.storyboard */,
 				8FD59E89266A027D007F8FE9 /* Info.plist */,
-				8FD59EAF266A5203007F8FE9 /* GoogleService-Info.plist */,
+				8F7C8D2A26C4F778009B09A5 /* GoogleService-Info.plist */,
 			);
 			path = EcommerceAdmin;
 			sourceTree = "<group>";
@@ -433,11 +438,11 @@
 				8F4DB98D266DFDEC005D0138 /* ProductCell.xib in Resources */,
 				8F831A6C266DEDC8009D74DF /* CategoryCell.xib in Resources */,
 				8FD59E4F266A018D007F8FE9 /* Assets.xcassets in Resources */,
-				8FD59EAE266A4BEF007F8FE9 /* GoogleService-Info.plist in Resources */,
 				8FD59ECC266DD759007F8FE9 /* Main.storyboard in Resources */,
 				8F27B9F9267071CC00C4AF00 /* ProductDetailVC.xib in Resources */,
 				8FD59EC6266CF8ED007F8FE9 /* ForgotPasswordVC.xib in Resources */,
 				8F4F30D02676056F000407B8 /* CartItemCell.xib in Resources */,
+				8F7C8D2926C4F747009B09A5 /* GoogleService-Info.plist in Resources */,
 				8F9F1CB2267DE14A003EC051 /* screenshots.png in Resources */,
 				8FD59EAC266A0D1F007F8FE9 /* LoginStoryBoard.storyboard in Resources */,
 			);
@@ -448,8 +453,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F831A6D266DEDC8009D74DF /* CategoryCell.xib in Resources */,
+				8F7C8D2B26C4F778009B09A5 /* GoogleService-Info.plist in Resources */,
+				8F7C8D2526C4F682009B09A5 /* LoginStoryBoard.storyboard in Resources */,
+				8F7C8D2726C4F6AE009B09A5 /* ForgotPasswordVC.xib in Resources */,
 				8FD59E88266A027D007F8FE9 /* LaunchScreen.storyboard in Resources */,
-				8FD59EB0266A5204007F8FE9 /* GoogleService-Info.plist in Resources */,
 				8F4DB98E266DFDEC005D0138 /* ProductCell.xib in Resources */,
 				8FD59EAA266A0331007F8FE9 /* Assets.xcassets in Resources */,
 				8FD59E83266A027B007F8FE9 /* Main.storyboard in Resources */,
@@ -573,11 +580,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F7C8D2426C4F67D009B09A5 /* LoginVC.swift in Sources */,
 				8FD59E80266A027B007F8FE9 /* AdminHomeVC.swift in Sources */,
 				8F27B9FC2670B71400C4AF00 /* RoundedViews.swift in Sources */,
 				8F9F1CA4267B6802003EC051 /* UserService.swift in Sources */,
 				8F27B9FB2670B6EF00C4AF00 /* HomeVC.swift in Sources */,
 				8F4DB988266DFD33005D0138 /* Product.swift in Sources */,
+				8F7C8D2626C4F6AC009B09A5 /* ForgotPasswordVC.swift in Sources */,
 				8FD59E7C266A027B007F8FE9 /* AppDelegate.swift in Sources */,
 				8FD59E7E266A027B007F8FE9 /* SceneDelegate.swift in Sources */,
 				8F542ACE2671E6ED009987B2 /* AdminProductsVC.swift in Sources */,
@@ -591,6 +600,7 @@
 				8F4DB98C266DFDEC005D0138 /* ProductCell.swift in Sources */,
 				8F831A67266DEC7E009D74DF /* Category.swift in Sources */,
 				8F831A6B266DEDC8009D74DF /* CategoryCell.swift in Sources */,
+				8F7C8D2326C4F67B009B09A5 /* RegisterVC.swift in Sources */,
 				8F27B9FD2670B72000C4AF00 /* Constants.swift in Sources */,
 				8F27B9FF2670B83B00C4AF00 /* ProductDetailVC.swift in Sources */,
 			);
